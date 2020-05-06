@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Ведется разработка</p>
+    <!--TODO: purple btn  UI. Responsible - Pavel-->
   </div>
 </template>
 
