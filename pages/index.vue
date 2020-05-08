@@ -16,7 +16,7 @@
   import Greeting from '@/components/Greeting.vue';
 export default {
    components: {
-     Greeting
+     Greeting,
    },
 };
 </script>

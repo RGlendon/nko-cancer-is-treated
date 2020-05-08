@@ -14,8 +14,8 @@
 <style scoped>
 .greeting {
   position: relative;
-   max-width: 1280px;
-   min-height: 620px;
+   max-width: 1440px;
+   min-height: 689px;
    margin: 0 auto;
    background-color: #613A93;
    display: flex;
@@ -28,7 +28,7 @@
     color: #fff;
     font-style: normal;
     font-weight: 800;
-    font-size: 78px;
+    font-size: 92px;
     line-height: 1.2;
 }
 
