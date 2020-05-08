@@ -23,7 +23,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit" : "prettier --write './**/*.{js,vue}' && git add ."
+      "pre-commit": "prettier --write './**/*.{js,vue}' && git add ."
     }
   }
 }
