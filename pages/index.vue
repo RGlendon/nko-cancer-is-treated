@@ -1,6 +1,6 @@
 <template>
   <div class="general">
-    <!--    TODO: greeting - Responsible - Alexander-->
+     <Greeting />    <!--    TODO: greeting - Responsible - Alexander-->
     <!--    TODO: block with video - Responsible - Pavel-->
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
@@ -13,7 +13,12 @@
 </template>
 
 <script>
-export default {};
+  import Greeting from '@/components/Greeting.vue';
+export default {
+   components: {
+     Greeting,
+   },
+};
 </script>
 
 <style>

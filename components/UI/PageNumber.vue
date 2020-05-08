@@ -1,5 +1,7 @@
 <template>
+  <div>
   <!--  TODO: button more articles. Responsible - Alexander-->
+  </div>
 </template>
 
 <script>
