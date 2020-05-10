@@ -1,9 +1,10 @@
 <template>
   <div class="general">
-     <Greeting />    <!--    TODO: greeting - Responsible - Alexander-->
+    <Greeting />
+    <!--    TODO: greeting - Responsible - Alexander-->
     <!--    TODO: block with video - Responsible - Pavel-->
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
+    <Stories /><!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <!--    TODO: block Instagram - Responsible - Dmitry-->
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
@@ -13,11 +14,13 @@
 </template>
 
 <script>
-  import Greeting from '@/components/Greeting.vue';
+import Greeting from '@/components/Greeting.vue';
+import Stories from '@/components/Stories.vue';
 export default {
-   components: {
-     Greeting,
-   },
+  components: {
+    Greeting,
+    Stories,
+  },
 };
 </script>
 

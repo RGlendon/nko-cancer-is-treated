@@ -1,6 +1,6 @@
 <template>
   <div>
-  <!--  TODO: button more articles. Responsible - Alexander-->
+    <!--  TODO: button more articles. Responsible - Alexander-->
   </div>
 </template>
 

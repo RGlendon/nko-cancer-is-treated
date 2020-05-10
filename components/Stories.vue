@@ -1,15 +1,6 @@
 <template>
   <div class="stories">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
-    <form action="" method="get" class="stories__search">
-      <input
-        name="search"
-        placeholder="Искать здесь..."
-        type="search"
-        class="stories__search-input"
-      />
-      <button type="submit" class="stories__search-button">Поиск</button>
-    </form>
     <div class="stories__container">
       <div class="story__item">
         <a href="../stories/1" class="story__link">
@@ -106,107 +97,18 @@
           </div>
         </a>
       </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img
-              src="https://i.pinimg.com/474x/8e/8d/d0/8e8dd0868c61806e1c24bc8dd3ec0d91.jpg"
-              class="story__background"
-            />
-            <h3 class="story__title">Владимир Тен</h3>
-            <p class="story__subtitle">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Владимир Познер</h3>
-            <p class="story__subtitle">
-              Я боюсь акул — и, в отличии от рака, это не лечится.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Александр Тарханов</h3>
-            <p class="story__subtitle">
-              Я не могу победить свою пунктуальность в отличии от рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Владимир Тен</h3>
-            <p class="story__subtitle">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Владимир Тен</h3>
-            <p class="story__subtitle">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Владимир Познер</h3>
-            <p class="story__subtitle">
-              Я боюсь акул — и, в отличии от рака, это не лечится.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Александр Тарханов</h3>
-            <p class="story__subtitle">
-              Я не могу победить свою пунктуальность в отличии от рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrap">
-            <img class="story__background" />
-            <h3 class="story__title">Владимир Тен</h3>
-            <p class="story__subtitle">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-        </a>
-      </div>
     </div>
+    <ShowMore />
   </div>
 </template>
 
 <script>
-export default {};
+import ShowMore from '@/components/UI/ShowMoreButton.vue';
+export default {
+  components: {
+    ShowMore,
+  },
+};
 </script>
 
 <style scoped>
@@ -230,32 +132,6 @@ export default {};
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-}
-
-.stories__search {
-  margin-top: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-.stories__search-input {
-  width: 1074px;
-  height: 52px;
-  border: 1px solid #e8e8e8;
-  padding: 0;
-}
-
-.stories__search-button {
-  width: 226px;
-  height: 52px;
-  background: #613a93;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  padding: 0;
 }
 
 .story__link {
@@ -291,18 +167,5 @@ export default {};
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-}
-
-.sories__more {
-  margin-top: 70px;
-  width: 100%;
-  height: 82px;
-  background: #fbfbfb;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  cursor: pointer;
 }
 </style>
