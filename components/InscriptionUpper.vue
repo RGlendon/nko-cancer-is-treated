@@ -24,6 +24,10 @@
 
 .InscriptionUpper__text {
   color: #fff;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.53;
 }
 
 </style>
