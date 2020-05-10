@@ -1,6 +1,6 @@
 <template>
   <div class="InscriptionUpper">
-    <h3 class="InscriptionUpper__text">И В ОТЛИЧИЕ ОТ РАКА, #ЭТОНЕЛЕЧИТСЯ</h3>
+    <h3 class="InscriptionUpper__text">И В ОТЛИЧИЕ ОТ РАКА, <span class="InscriptionUpper__text-highlighted">#ЭТОНЕЛЕЧИТСЯ</span></h3>
   </div>
 </template>
 
@@ -12,14 +12,12 @@
 
 <style scoped>
 .InscriptionUpper {
-  width: 100%;
+  max-width: 1320px;
   min-height: 86px;
   background-color: #613A93;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .InscriptionUpper__text {
@@ -28,6 +26,11 @@
   font-weight: 300;
   font-size: 30px;
   line-height: 1.53;
+}
+
+.InscriptionUpper__text-highlighted {
+  font-weight: 800;
+  font-size: 40px;
 }
 
 </style>
