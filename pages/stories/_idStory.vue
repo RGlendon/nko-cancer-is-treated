@@ -56,55 +56,16 @@
       <hr class="story__line" />
     </div>
     <div class="stories__container">
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrapp">
-            <img
-              src="https://i.pinimg.com/474x/8e/8d/d0/8e8dd0868c61806e1c24bc8dd3ec0d91.jpg"
-              class="story__background"
-            />
-            <h3 class="story__author">Владимир Тен</h3>
-            <p class="story__quote">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrapp">
-            <img class="story__background" />
-            <h3 class="story__author">Владимир Познер</h3>
-            <p class="story__quote">
-              Я боюсь акул — и, в отличии от рака, это не лечится.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrapp">
-            <img class="story__background" />
-            <h3 class="story__author">Александр Тарханов</h3>
-            <p class="story__quote">
-              Я не могу победить свою пунктуальность в отличии от рака.
-            </p>
-          </div>
-        </a>
-      </div>
-      <div class="story__item">
-        <a href="../stories/1" class="story__link">
-          <div class="story__wrapp">
-            <img class="story__background" />
-            <h3 class="story__author">Владимир Тен</h3>
-            <p class="story__quote">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-        </a>
-      </div>
+      <ul class="stories__list">
+        <li class="stories__item" v-for="story in stories" :key="story.id">
+          <Story
+            :img="story.img"
+            :text="story.text"
+            :author="story.author"
+            :id="`/stories/${story.id}`"
+          />
+        </li>
+      </ul>
     </div>
     <ShowMore />
   </div>
@@ -112,9 +73,50 @@
 
 <script>
 import ShowMore from '@/components/UI/ShowMoreButton.vue';
+import Story from '@/components/Story.vue';
 export default {
   components: {
     ShowMore,
+    Story,
+  },
+  data() {
+    return {
+      posts: [
+        { id: 1, title: 'My journey with Vue' },
+        { id: 2, title: 'Blogging with Vue' },
+        { id: 3, title: 'Why Vue is so fun' },
+      ],
+
+      stories: [
+        {
+          id: '1',
+          author: 'Владимир Тен',
+          text:
+            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
+          img:
+            'https://i.pinimg.com/474x/8e/8d/d0/8e8dd0868c61806e1c24bc8dd3ec0d91.jpg',
+        },
+        {
+          id: '2',
+          author: 'Владимир Познер',
+          text: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
+          img: 'https://avatarko.ru/img/kartinka/17/anonim_16595.jpg',
+        },
+        {
+          id: '3',
+          author: 'Александр Тарханов',
+          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
+          img: 'https://avatarko.ru/img/kartinka/22/film_elf_Tauriel_21381.jpg',
+        },
+        {
+          id: '4',
+          author: 'Владимир Тен',
+          text:
+            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
+          img: 'https://avatarko.ru/img/kartinka/1/Spiderman.jpg',
+        },
+      ],
+    };
   },
 };
 </script>
@@ -202,45 +204,12 @@ export default {
   margin-bottom: 70px;
 }
 
-.stories__container {
+.stories__list {
+  list-style: none;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 0;
   margin-top: 90px;
-}
-
-.story__item {
-  margin-top: 70px;
-}
-
-.story__link {
-  text-decoration: none;
-  color: black;
-}
-
-.story__background {
-  background: #ededed;
-  width: 300px;
-  height: 300px;
-}
-
-.story__author {
-  margin-top: 20px;
-  width: 300px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 22px;
-}
-
-.story__quote {
-  margin-top: 14px;
-  width: 250px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 18px;
 }
 </style>

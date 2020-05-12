@@ -25,5 +25,6 @@ export default {
   font-size: 16px;
   line-height: 20px;
   cursor: pointer;
+  border: none;
 }
 </style>
