@@ -1,20 +1,21 @@
 <template>
   <div class="InscriptionUpper">
-    <h3 class="InscriptionUpper__text">И В ОТЛИЧИЕ ОТ РАКА, <span class="InscriptionUpper__text-highlighted">#ЭТОНЕЛЕЧИТСЯ</span></h3>
+    <h3 class="InscriptionUpper__text">
+      И В ОТЛИЧИЕ ОТ РАКА,
+      <span class="InscriptionUpper__text-highlighted">#ЭТОНЕЛЕЧИТСЯ</span>
+    </h3>
   </div>
 </template>
 
 <script>
-  export default {
-
-  }
+export default {};
 </script>
 
 <style scoped>
 .InscriptionUpper {
   max-width: 1320px;
   min-height: 86px;
-  background-color: #613A93;
+  background-color: #613a93;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,5 +33,4 @@
   font-weight: 800;
   font-size: 40px;
 }
-
 </style>
