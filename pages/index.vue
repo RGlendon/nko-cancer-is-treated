@@ -1,31 +1,44 @@
 <template>
   <div class="general">
-    <Greeting class="Greeting" />    <!--    TODO: greeting - Responsible - Alexander-->
+    <!--    TODO: greeting - Responsible - Alexander-->
+    <Greeting class="Greeting" />
     <!--    TODO: block with video - Responsible - Pavel-->
-    <InscriptionUpper class="InscriptionUpper"/>   <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <Stories />   <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
-    <InscriptionBottom class="InscriptionBottom"/>   <!--    TODO: horizontal inscription - Responsible - Alexander-->
+    <Video class="video" />
+    <!--    TODO: horizontal inscription - Responsible - Alexander-->
+    <InscriptionUpper class="InscriptionUpper" />
+    <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
+    <Stories />
+    <!--    TODO: horizontal inscription - Responsible - Alexander-->
+    <InscriptionBottom class="InscriptionBottom" />
     <!--    TODO: block Instagram - Responsible - Dmitry-->
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
+    <div class="tellStory">
+      <TellUsStory />
+    </div>
     <!--    TODO: block Statistics - Responsible - Mikhail-->
     <!--    TODO: block #РакЛечится - Responsible - Oleg-->
   </div>
 </template>
 
 <script>
-
   import Greeting from '@/components/Greeting.vue';
+  import Video from '@/components/Video.vue';
   import Stories from '@/components/Stories.vue';
   import InscriptionUpper from '@/components/InscriptionUpper.vue';
   import InscriptionBottom from '@/components/InscriptionBottom.vue';
-export default {
+  import TellUsStory from '@/components/TellUsStory.vue';
+  
+  export default {
    components: {
      Greeting,
      Stories,
+     Video,
+     TellUsStory,
      InscriptionUpper,
      InscriptionBottom,
    },
-};
+
+  };
 </script>
 
 <style>
@@ -35,6 +48,14 @@ export default {
 
 .Greeting {
   margin: 0;
+}
+
+.video {
+  margin: 100px auto;
+}
+
+.tellStory {
+  margin: 0 auto;
 }
 
 .InscriptionUpper {
