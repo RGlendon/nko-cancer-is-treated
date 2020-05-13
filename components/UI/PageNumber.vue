@@ -1,30 +1,19 @@
 <template>
-  <ul class="page-numbers">
-    <li class="page-number page-number_active">{{number}}</li>
-  </ul>
+  <div class="page-number page-number_active">{{ number }}</div>
 </template>
 
 <script>
 export default {
-  name: 'PageNumber.vue',
+  name: 'PageNumber',
   props: ['number'],
 };
 </script>
 
 <style scoped>
-.page-numbers {
-  max-width: 480px;
-  margin: 300px auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-}
-
 .page-number {
   width: 58px;
   height: 58px;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,12 +21,12 @@ export default {
   font-size: 18px;
   line-height: 22px;
 }
-.page-numbers :last-child {
-  margin-right: 0;
-}
+
+/*.page-numbers :last-child {*/
+/*  margin-right: 0;*/
+/*}*/
 
 .page-number_active {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
-
 </style>
