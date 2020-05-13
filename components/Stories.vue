@@ -1,15 +1,6 @@
 <template>
   <div class="stories">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
-    <form action="" method="get" class="stories__search">
-      <input
-        name="search"
-        placeholder="Искать здесь..."
-        type="search"
-        class="stories__search-input"
-      />
-      <button type="submit" class="stories__search-button">Поиск</button>
-    </form>
     <div class="stories__container">
       <ul class="stories__list">
         <li class="stories__item" v-for="story in stories" :key="story.id">
@@ -22,13 +13,16 @@
         </li>
       </ul>
     </div>
+    <ShowMore />
   </div>
 </template>
 
 <script>
+import ShowMore from '@/components/UI/ShowMoreButton.vue';
 import Story from '@/components/Story.vue';
 export default {
   components: {
+    ShowMore,
     Story,
   },
   data() {
@@ -88,60 +82,6 @@ export default {
             'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
           img: 'https://avatarko.ru/img/kartinka/1/Spiderman.jpg',
         },
-        {
-          id: '9',
-          author: 'Владимир Тен',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          img:
-            'https://i.pinimg.com/474x/8e/8d/d0/8e8dd0868c61806e1c24bc8dd3ec0d91.jpg',
-        },
-        {
-          id: '10',
-          author: 'Владимир Познер',
-          text: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          img: 'https://avatarko.ru/img/kartinka/17/anonim_16595.jpg',
-        },
-        {
-          id: '11',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-          img: 'https://avatarko.ru/img/kartinka/22/film_elf_Tauriel_21381.jpg',
-        },
-        {
-          id: '12',
-          author: 'Владимир Тен',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          img: 'https://avatarko.ru/img/kartinka/1/Spiderman.jpg',
-        },
-        {
-          id: '13',
-          author: 'Владимир Тен',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          img:
-            'https://i.pinimg.com/474x/8e/8d/d0/8e8dd0868c61806e1c24bc8dd3ec0d91.jpg',
-        },
-        {
-          id: '14',
-          author: 'Владимир Познер',
-          text: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-          img: 'https://avatarko.ru/img/kartinka/17/anonim_16595.jpg',
-        },
-        {
-          id: '15',
-          author: 'Александр Тарханов',
-          text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-          img: 'https://avatarko.ru/img/kartinka/22/film_elf_Tauriel_21381.jpg',
-        },
-        {
-          id: '16',
-          author: 'Владимир Тен',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-          img: 'https://avatarko.ru/img/kartinka/1/Spiderman.jpg',
-        },
       ],
     };
   },
@@ -149,6 +89,14 @@ export default {
 </script>
 
 <style scoped>
+.stories__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
 .stories {
   max-width: calc(1440px - 120px);
   min-height: 689px;
@@ -163,39 +111,5 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-}
-
-.stories__search {
-  margin-top: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-.stories__search-input {
-  width: 1074px;
-  height: 52px;
-  border: 1px solid #e8e8e8;
-  padding: 0;
-}
-
-.stories__search-button {
-  width: 226px;
-  height: 52px;
-  background: #613a93;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  padding: 0;
-}
-
-.stories__list {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 0;
 }
 </style>

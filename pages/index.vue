@@ -1,14 +1,15 @@
 <template>
   <div class="general">
-    <Greeting class="Greeting" />
     <!--    TODO: greeting - Responsible - Alexander-->
-    <Video class="video" />
+    <Greeting class="Greeting" />
     <!--    TODO: block with video - Responsible - Pavel-->
+    <Video class="video" />
+    <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <InscriptionUpper class="InscriptionUpper" />
-    <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
-    <InscriptionBottom class="InscriptionBottom" />
+    <Stories />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
+    <InscriptionBottom class="InscriptionBottom" />
     <!--    TODO: block Instagram - Responsible - Dmitry-->
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
     <div class="tellStory">
@@ -20,21 +21,24 @@
 </template>
 
 <script>
-import Greeting from '@/components/Greeting.vue';
-import Video from '@/components/Video.vue';
-import TellUsStory from '@/components/TellUsStory.vue';
-import InscriptionUpper from '@/components/InscriptionUpper.vue';
-import InscriptionBottom from '@/components/InscriptionBottom.vue';
+  import Greeting from '@/components/Greeting.vue';
+  import Video from '@/components/Video.vue';
+  import Stories from '@/components/Stories.vue';
+  import InscriptionUpper from '@/components/InscriptionUpper.vue';
+  import InscriptionBottom from '@/components/InscriptionBottom.vue';
+  import TellUsStory from '@/components/TellUsStory.vue';
+  
+  export default {
+   components: {
+     Greeting,
+     Stories,
+     Video,
+     TellUsStory,
+     InscriptionUpper,
+     InscriptionBottom,
+   },
 
-export default {
-  components: {
-    Greeting,
-    Video,
-    TellUsStory,
-    InscriptionUpper,
-    InscriptionBottom,
-  },
-};
+  };
 </script>
 
 <style>

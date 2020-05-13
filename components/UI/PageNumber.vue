@@ -22,10 +22,6 @@ export default {
   line-height: 22px;
 }
 
-/*.page-numbers :last-child {*/
-/*  margin-right: 0;*/
-/*}*/
-
 .page-number_active {
   background-color: #f4f4f4;
 }
