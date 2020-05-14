@@ -16,7 +16,7 @@
       <TellUsStory />
     </div>
     <!--    TODO: block Statistics - Responsible - Mikhail-->
-    <!--    TODO: block #РакЛечится - Responsible - Oleg-->
+    <Raklechitsa /><!--    TODO: block #РакЛечится - Responsible - Oleg-->
   </div>
 </template>
 
@@ -27,6 +27,7 @@ import Stories from '@/components/Stories.vue';
 import InscriptionUpper from '@/components/InscriptionUpper.vue';
 import InscriptionBottom from '@/components/InscriptionBottom.vue';
 import TellUsStory from '@/components/TellUsStory.vue';
+import Raklechitsa from '@/components/Raklechitsa.vue';
 
 export default {
   components: {
@@ -36,6 +37,7 @@ export default {
     TellUsStory,
     InscriptionUpper,
     InscriptionBottom,
+    Raklechitsa,
   },
 };
 </script>
