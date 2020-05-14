@@ -25,11 +25,13 @@
           2-й вариант
         </p>
       </div>
-      <p class="tellStory__instruction">
-        {{ options[option] }}
-      </p>
+      <div class="tellStory__wrapper">
+        <p class="tellStory__instruction">
+          {{ options[option] }}
+        </p>
+        <Button :text="'Заполнить форму'" />
+      </div>
     </div>
-    <Button />
   </div>
 </template>
 
@@ -70,12 +72,13 @@ export default {
   font-style: normal;
   background-color: #f7f7f7;
   padding: 100px 60px;
+  box-sizing: border-box;
 }
 
 .tellStory__title {
   max-width: 413px;
   min-height: 72px;
-  margin: 0 0 32px 60px;
+  margin: 0;
   display: flex;
   font-weight: 600;
   font-size: 32px;
@@ -85,7 +88,7 @@ export default {
 .tellStory__stories {
   max-width: 1320px;
   min-height: 110px;
-  margin: auto;
+  margin-top: 32px;
   display: flex;
 }
 
@@ -120,11 +123,17 @@ export default {
   color: black;
 }
 
-.tellStory__instruction {
-  width: 640px;
-  min-height: 88px;
+.tellStory__wrapper {
   margin-left: 40px;
-  font-weight: normal;
+  width: 48.48%;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tellStory__instruction {
+  /*min-height: 88px;*/
   font-size: 18px;
   line-height: 22px;
   color: #666666;

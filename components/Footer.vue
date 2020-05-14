@@ -1,13 +1,18 @@
 <template>
-  <footer class="footer" >
+  <footer class="footer">
     <div class="footer__upper-block">
-      <h2 class="footer__title">Спасибо всем, кто помог состояться этому проекту</h2>
+      <h2 class="footer__title">
+        Спасибо всем, кто помог состояться этому проекту
+      </h2>
       <nav class="footer__menu">
         <nuxt-link to="/" class="footer__menu-link">Главная</nuxt-link>
         <nuxt-link to="/stories" class="footer__menu-link">Истории</nuxt-link>
       </nav>
       <div class="footer__social-blok">
-        <p class="footer__social-link-text">Мы в <a class="footer__social-link" href="#">Инстаграме</a> и <a class="footer__social-link" href="#">Youtube</a></p>
+        <p class="footer__social-link-text">
+          Мы в <a class="footer__social-link" href="#">Инстаграме</a> и
+          <a class="footer__social-link" href="#">Youtube</a>
+        </p>
         <p class="footer__social-link-text">Поделитесь ↗</p>
       </div>
     </div>
@@ -89,5 +94,4 @@ export default {};
   line-height: 1.1;
   color: #898989;
 }
-
 </style>
