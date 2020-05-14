@@ -75,7 +75,7 @@ export default {
 .tellStory__title {
   max-width: 413px;
   min-height: 72px;
-  margin: 0 0 32px 0;
+  margin: 0 0 32px 60px;
   display: flex;
   font-weight: 600;
   font-size: 32px;

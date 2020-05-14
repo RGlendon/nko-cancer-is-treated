@@ -11,6 +11,9 @@
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <InscriptionBottom class="InscriptionBottom" />
     <!--    TODO: block Instagram - Responsible - Dmitry-->
+    <div class="inst">
+      <Inst />
+    </div>
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
     <div class="tellStory">
       <TellUsStory />
@@ -27,6 +30,7 @@ import Stories from '@/components/Stories.vue';
 import InscriptionUpper from '@/components/InscriptionUpper.vue';
 import InscriptionBottom from '@/components/InscriptionBottom.vue';
 import TellUsStory from '@/components/TellUsStory.vue';
+import Inst from '@/components/Inst.vue';
 
 export default {
   components: {
@@ -36,6 +40,7 @@ export default {
     TellUsStory,
     InscriptionUpper,
     InscriptionBottom,
+    Inst,
   },
 };
 </script>
@@ -47,6 +52,10 @@ export default {
 
 .Greeting {
   margin: 0;
+}
+
+.inst {
+  margin: 100px auto 100px;
 }
 
 .video {
