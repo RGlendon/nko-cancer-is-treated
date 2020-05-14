@@ -1,15 +1,15 @@
 <template>
   <div class="general">
     <!--    TODO: greeting - Responsible - Alexander-->
-    <Greeting class="Greeting" />
+    <Greeting class="greeting" />
     <!--    TODO: block with video - Responsible - Pavel-->
     <Video class="video" />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <InscriptionUpper class="InscriptionUpper" />
+    <InscriptionUpper class="inscriptionUpper" />
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
     <Stories />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <InscriptionBottom class="InscriptionBottom" />
+    <InscriptionBottom class="inscriptionBottom" />
     <!--    TODO: block Instagram - Responsible - Dmitry-->
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
     <div class="tellStory">
@@ -45,7 +45,7 @@ export default {
   margin: 0 auto;
 }
 
-.Greeting {
+.greeting {
   margin: 0;
 }
 
@@ -57,11 +57,11 @@ export default {
   margin: 0 auto;
 }
 
-.InscriptionUpper {
+.inscriptionUpper {
   margin: 74px auto 0;
 }
 
-.InscriptionBottom {
+.inscriptionBottom {
   margin: 100px auto 0;
 }
 </style>
