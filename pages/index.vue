@@ -19,6 +19,9 @@
       <TellUsStory />
     </div>
     <!--    TODO: block Statistics - Responsible - Mikhail-->
+    <div class="statistics-wrapper">
+      <Statistics />
+    </div>
     <!--    TODO: block #РакЛечится - Responsible - Oleg-->
     <Raklechitsa />
   </div>
@@ -33,9 +36,11 @@ import InscriptionBottom from '@/components/InscriptionBottom.vue';
 import TellUsStory from '@/components/TellUsStory.vue';
 import Raklechitsa from '@/components/Raklechitsa.vue';
 import Inst from '@/components/Inst.vue';
+import Statistics from '../components/Statistics';
 
 export default {
   components: {
+    Statistics,
     Greeting,
     Stories,
     Video,
@@ -75,5 +80,9 @@ export default {
 
 .InscriptionBottom {
   margin: 100px auto 0;
+}
+
+.statistics-wrapper {
+  margin: 100px auto;
 }
 </style>
