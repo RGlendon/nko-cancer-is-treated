@@ -97,13 +97,12 @@ export default {
 }
 
 .raklechitsa__title {
-  font-family: Inter;
-  font-style: normal;
   font-weight: 800;
   font-size: 64px;
   line-height: 77px;
   text-align: center;
   color: #ffffff;
+  margin: 0;
 }
 
 .raklechitsa__columns {
@@ -120,38 +119,33 @@ export default {
 
 .raklechitsa__main-text {
   max-width: 640px;
-  font-family: Inter;
-  font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   color: #dedede;
+  margin: 0;
 }
 
 .raklechitsa__about {
   max-width: 340px;
-  font-family: Inter;
-  font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
   color: #ffffff;
+  margin: 0;
 }
 
 .raklechitsa__about-text {
   max-width: 340px;
-  font-family: Inter;
-  font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   color: #dedede;
+  margin: 0;
   margin-top: 32px;
 }
 
 .raklechitsa__link1 {
-  font-family: Inter;
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
@@ -163,8 +157,6 @@ export default {
 }
 
 .raklechitsa__link2 {
-  font-family: Inter;
-  font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
