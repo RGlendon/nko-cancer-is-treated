@@ -1,24 +1,22 @@
 <template>
-  <div class="button__form">Заполнить форму</div>
+  <div class="button__form">{{ text }}</div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'Button',
+  props: ['text'],
+};
 </script>
 
 <style scoped>
 .button__form {
   width: 280px;
-  min-height: 52px;
-  margin: 56px 0 0 740px;
   background-color: #613a93;
-  font-family: Inter, serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 52px;
   text-align: center;
-  padding-top: 17px;
   color: #ffffff;
   transition: all 0.3s linear;
   cursor: pointer;
