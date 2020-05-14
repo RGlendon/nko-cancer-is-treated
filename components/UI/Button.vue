@@ -12,7 +12,7 @@ export default {};
   min-height: 52px;
   margin: 56px 0 0 740px;
   background-color: #613a93;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

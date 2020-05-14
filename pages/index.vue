@@ -21,24 +21,23 @@
 </template>
 
 <script>
-  import Greeting from '@/components/Greeting.vue';
-  import Video from '@/components/Video.vue';
-  import Stories from '@/components/Stories.vue';
-  import InscriptionUpper from '@/components/InscriptionUpper.vue';
-  import InscriptionBottom from '@/components/InscriptionBottom.vue';
-  import TellUsStory from '@/components/TellUsStory.vue';
-  
-  export default {
-   components: {
-     Greeting,
-     Stories,
-     Video,
-     TellUsStory,
-     InscriptionUpper,
-     InscriptionBottom,
-   },
+import Greeting from '@/components/Greeting.vue';
+import Video from '@/components/Video.vue';
+import Stories from '@/components/Stories.vue';
+import InscriptionUpper from '@/components/InscriptionUpper.vue';
+import InscriptionBottom from '@/components/InscriptionBottom.vue';
+import TellUsStory from '@/components/TellUsStory.vue';
 
-  };
+export default {
+  components: {
+    Greeting,
+    Stories,
+    Video,
+    TellUsStory,
+    InscriptionUpper,
+    InscriptionBottom,
+  },
+};
 </script>
 
 <style>
