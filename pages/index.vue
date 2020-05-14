@@ -11,12 +11,16 @@
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <InscriptionBottom class="InscriptionBottom" />
     <!--    TODO: block Instagram - Responsible - Dmitry-->
+    <div class="inst">
+      <Inst />
+    </div>
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
     <div class="tellStory">
       <TellUsStory />
     </div>
     <!--    TODO: block Statistics - Responsible - Mikhail-->
-    <Raklechitsa /><!--    TODO: block #РакЛечится - Responsible - Oleg-->
+    <!--    TODO: block #РакЛечится - Responsible - Oleg-->
+    <Raklechitsa />
   </div>
 </template>
 
@@ -28,6 +32,7 @@ import InscriptionUpper from '@/components/InscriptionUpper.vue';
 import InscriptionBottom from '@/components/InscriptionBottom.vue';
 import TellUsStory from '@/components/TellUsStory.vue';
 import Raklechitsa from '@/components/Raklechitsa.vue';
+import Inst from '@/components/Inst.vue';
 
 export default {
   components: {
@@ -38,6 +43,7 @@ export default {
     InscriptionUpper,
     InscriptionBottom,
     Raklechitsa,
+    Inst,
   },
 };
 </script>
@@ -49,6 +55,10 @@ export default {
 
 .Greeting {
   margin: 0;
+}
+
+.inst {
+  margin: 100px auto;
 }
 
 .video {
