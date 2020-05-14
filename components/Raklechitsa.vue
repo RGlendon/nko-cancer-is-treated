@@ -12,24 +12,23 @@
         </div>
         <div class="raklechitsa__column">
           <div class="raklechitsa__links">
-            <a href="#" class="raklechitsa__link1" v-on:click="stories[0].text"
+            <a
+              class="tellStory__variant raklechitsa__link1"
+              :class="{ tellStory__variant_active: option === 0 }"
+              v-on:click="selectOption(0)"
               >Рак Лечится</a
             >
-            <a href="#" class="raklechitsa__link2">Фонд Хабенского</a>
+            <a
+              class="tellStory__variant raklechitsa__link2"
+              :class="{ tellStory__variant_active: option === 1 }"
+              v-on:click="selectOption(1)"
+              >Фонд Хабенского</a
+            >
           </div>
-          <p class="raklechitsa__main-text">
-            Есть вещи, которые не лечатся. Особенности характера, страстные
-            увлечения, привычки, ставшие частью нашего «я», фобии, которые мы
-            приобрели в детстве. Список можно продолжать до бесконечности, но
-            одна болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится,
-            и лучшее доказательство — люди с их неизлечимыми особенностями,
-            которые сумели победить рак. <br />
-            <br />
-            Рак лечится — проект Благотворительного Фонда Константина Хабенского
-            и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение
-            людей к раку и заставить каждого поверить: онкологическое
-            заболевание — это не приговор.
-          </p>
+          <p
+            class="raklechitsa__main-text"
+            v-html="options[option].replace(/(?:\r\n|\r|\n)/g, '<br />')"
+          ></p>
         </div>
       </div>
     </div>
@@ -37,19 +36,35 @@
 </template>
 
 <script>
+import Button from '@/components/UI/Button.vue';
+
 export default {
+  components: {
+    Button,
+  },
+
+  methods: {
+    selectOption: function(number) {
+      this.option = number;
+    },
+    handleNewLine(str) {
+      return str.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    },
+  },
+
   data() {
     return {
-      stories: [
-        {
-          id: '1',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '2',
-          text: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-        },
+      option: 0,
+      options: [
+        'Есть вещи, которые не лечатся. Особенности характера, страстные увлечения, привычки, ставшие частью нашего «я», фобии, которые мы приобрели в детстве. Список можно продолжать до бесконечности, но одна болезнь в него точно не войдет. Эта болезнь — рак. Рак лечится, и лучшее доказательство — люди с их неизлечимыми особенностями, которые сумели победить рак.\n' +
+          '\n' +
+          'Рак лечится — проект Благотворительного Фонда Константина Хабенского и Leo Burnett Moscow. С его помощью мы надеемся изменить отношение людей к раку и заставить каждого поверить: онкологическое заболевание — это не приговор.',
+        'Благотворительный Фонд Константина Хабенского с 2008 года помогает детям с онкологическими и другими тяжелыми заболеваниями головного мозга. Фонд не только поддерживает семью заболевшего ребенка в самый сложный момент, оплачивая обследования, лечение и медицинские препараты, но и в целом меняет систему оказания помощи детям с опухолями мозга в России.',
+        // 'Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю\n' +
+        //   '        после проверки. Пожалуйста, заполняйте все пункты корректно, если вы\n' +
+        //   '        испытаете какие-то сложности, воспользуйтесь 2-м вариантом.',
+        // 'Оставить контакт (почту или номер телефона) и мы свяжемся с вами, зададим вопросы, ' +
+        //   'уточним детали вашей истории.',
       ],
     };
   },
@@ -57,6 +72,14 @@ export default {
 </script>
 
 <style scoped>
+.tellStory__variant {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: normal;
+  cursor: pointer;
+  color: #c9c9c9;
+}
+
 .raklechitsa {
   max-width: 1440px;
   min-height: 650px;
@@ -131,9 +154,10 @@ export default {
   font-size: 18px;
   line-height: 22px;
   text-align: right;
-  color: #ffffff;
+  color: #c9c9c9;
   display: block;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .raklechitsa__link2 {
@@ -146,9 +170,16 @@ export default {
   color: #c9c9c9;
   display: block;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .raklechitsa__links {
   margin-right: 40px;
+}
+
+.tellStory__variant_active {
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
 }
 </style>
