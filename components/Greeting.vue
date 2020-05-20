@@ -1,20 +1,25 @@
 <template>
-  <div class="greeting">
-    <h1 class="greeting__title">#РАКЛЕЧИТСЯ</h1>
-    <div class="greeting__arrow"></div>
-  </div>
+  <Container>
+    <div class="greeting">
+      <h1 class="greeting__title">#РАКЛЕЧИТСЯ</h1>
+      <div class="greeting__arrow"></div>
+    </div>
+  </Container>
 </template>
 
 <script>
-export default {};
+  import Container from '@/components/Container.vue';
+export default {
+   components: {
+    Container,
+  }
+};
 </script>
 
 <style scoped>
 .greeting {
   position: relative;
-  max-width: 1440px;
-  min-height: 689px;
-  margin: 0 auto;
+  min-height: calc(100vh - 76px);
   background-color: #613a93;
   display: flex;
   justify-content: center;
@@ -32,12 +37,13 @@ export default {};
 
 .greeting__arrow {
   position: absolute;
-  left: calc(50%-50px);
-  bottom: 40px;
+  left:50%;
+  bottom: 50px;
   width: 24px;
   height: 24px;
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
-  transform: rotate(135deg) skew(10deg, 10deg);
+  transform: rotate(135deg) skew(10deg, 10deg) translateX(50%);
+
 }
 </style>
