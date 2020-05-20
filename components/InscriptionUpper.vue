@@ -1,19 +1,26 @@
 <template>
-  <div class="InscriptionUpper">
-    <h3 class="InscriptionUpper__text">
-      И В ОТЛИЧИЕ ОТ РАКА,
-      <span class="InscriptionUpper__text-highlighted">#ЭТОНЕЛЕЧИТСЯ</span>
-    </h3>
-  </div>
+  <Container>
+    <div class="inscription-upper">
+      <h3 class="inscription-upper__text">
+        И В ОТЛИЧИЕ ОТ РАКА,
+        <span class="inscription-upper__text-highlighted">#ЭТОНЕЛЕЧИТСЯ</span>
+      </h3>
+    </div>
+  </Container>
 </template>
 
 <script>
-export default {};
+import Container from '@/components/Container.vue';
+export default {
+  components: {
+    Container,
+  },
+};
 </script>
 
 <style scoped>
-.InscriptionUpper {
-  max-width: 1320px;
+.inscription-upper {
+  /* max-width: 1320px; */
   min-height: 86px;
   background-color: #613a93;
   display: flex;
@@ -21,7 +28,7 @@ export default {};
   align-items: center;
 }
 
-.InscriptionUpper__text {
+.inscription-upper__text {
   color: #fff;
   font-style: normal;
   font-weight: 300;
@@ -29,7 +36,7 @@ export default {};
   line-height: 1.53;
 }
 
-.InscriptionUpper__text-highlighted {
+.inscription-upper__text-highlighted {
   font-weight: 800;
   font-size: 40px;
 }

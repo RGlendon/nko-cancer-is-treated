@@ -5,11 +5,11 @@
     <!--    TODO: block with video - Responsible - Pavel-->
     <Video class="video" />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <InscriptionUpper class="inscriptionUpper" />
+    <InscriptionUpper class="inscription-upper" />
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
     <Stories />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <InscriptionBottom class="inscriptionBottom" />
+    <InscriptionBottom class="inscription-bottom" />
     <!--    TODO: block Instagram - Responsible - Dmitry-->
     <div class="inst">
       <Inst />
@@ -74,12 +74,12 @@ export default {
   margin: 0 auto;
 }
 
-.inscriptionUpper {
-  margin: 74px auto 0;
+.inscription-upper {
+ /* margin: 74px auto 0; */
 }
 
-.inscriptionBottom {
-  margin: 100px auto 0;
+.inscription-bottom {
+ /* margin: 100px auto 0; */
 }
 
 .statistics-wrapper {
