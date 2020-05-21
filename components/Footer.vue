@@ -1,37 +1,62 @@
 <template>
-  <footer class="footer">
-    <div class="footer__upper-block">
-      <h2 class="footer__title">
-        Спасибо всем, кто помог состояться этому проекту
-      </h2>
-      <nav class="footer__menu">
-        <nuxt-link to="/" class="footer__menu-link">Главная</nuxt-link>
-        <nuxt-link to="/stories" class="footer__menu-link">Истории</nuxt-link>
-      </nav>
-      <div class="footer__social-blok">
-        <p class="footer__social-link-text">
-          Мы в <a class="footer__social-link" href="#">Инстаграме</a> и
-          <a class="footer__social-link" href="#">Youtube</a>
-        </p>
-        <p class="footer__social-link-text">Поделитесь ↗</p>
+  <Container>
+    <footer class="footer">
+      <div class="footer__upper-block">
+        <h2 class="footer__title">
+          Спасибо всем, кто помог состояться этому проекту
+        </h2>
+        <nav class="footer__menu">
+          <Menu />
+        </nav>
+        <div class="footer__social-blok">
+          <p class="footer__social-link-text">
+            Мы в
+            <a class="footer__social-link" href="#" target="_blank"
+              >Инстаграме</a
+            >
+            и
+            <a class="footer__social-link" href="#" target="_blank">Youtube</a>
+          </p>
+          <p class="footer__social-link-text">Поделитесь ↗</p>
+        </div>
       </div>
-    </div>
-    <div class="footer__bottom-block">
-      <p class="footer__copyright">Рак Лечится 2020</p>
-      <p class="footer__copyright">Сделано студентами Яндекс Практикум</p>
-    </div>
-  </footer>
+      <div class="footer__bottom-block">
+        <p class="footer__copyright">Рак Лечится {{ Year }}</p>
+        <p class="footer__copyright">
+          Сделано студентами
+          <a
+            class="footer__copyright-link"
+            href="https://praktikum.yandex.ru"
+            target="_blank"
+            >Яндекс Практикум</a
+          >
+        </p>
+      </div>
+    </footer>
+  </Container>
 </template>
 
 <script>
-export default {};
+import Container from '@/components/Container.vue';
+import Menu from '@/components/Menu.vue';
+export default {
+  components: {
+    Container,
+    Menu,
+  },
+  data() {
+    return {
+      Year: new Date().getFullYear(),
+    };
+  },
+};
 </script>
 
 <style scoped>
 .footer {
-  margin: 0 auto;
-  padding: 50px;
-  max-width: 1280px;
+  background-color: #fbfbfb;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .footer__upper-block {
@@ -50,15 +75,6 @@ export default {};
 
 .footer__menu {
   width: 50%;
-}
-
-.footer__menu-link {
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 1.5;
-  text-decoration: none;
-  margin-left: 40px;
-  color: black;
 }
 
 .footer__social-blok {
@@ -92,6 +108,11 @@ export default {};
   font-weight: normal;
   font-size: 16px;
   line-height: 1.1;
+  color: #898989;
+}
+
+.footer__copyright-link {
+  text-decoration: none;
   color: #898989;
 }
 </style>
