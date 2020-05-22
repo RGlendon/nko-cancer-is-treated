@@ -1,15 +1,7 @@
 <template>
   <div class="stories">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
-    <form action="" method="get" class="stories__search">
-      <input
-        name="search"
-        placeholder="Искать здесь..."
-        type="search"
-        class="stories__search-input"
-      />
-      <button type="submit" class="stories__search-button">Поиск</button>
-    </form>
+    <StorySearch />
     <div class="stories__container">
       <ul class="stories__list">
         <li class="stories__item" v-for="story in stories" :key="story.id">
@@ -27,9 +19,11 @@
 
 <script>
 import Story from '@/components/Story.vue';
+import StorySearch from '@/components/UI/StorySearch.vue';
 export default {
   components: {
     Story,
+    StorySearch,
   },
   data() {
     return {
@@ -163,32 +157,7 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-}
-
-.stories__search {
-  margin-top: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-.stories__search-input {
-  width: 1074px;
-  height: 52px;
-  border: 1px solid #e8e8e8;
-  padding: 0;
-}
-
-.stories__search-button {
-  width: 226px;
-  height: 52px;
-  background: #613a93;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  padding: 0;
+  margin-bottom: 60px;
 }
 
 .stories__list {
@@ -197,5 +166,6 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0;
+  margin: 0;
 }
 </style>

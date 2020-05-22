@@ -1,27 +1,31 @@
 <template>
-  <div class="stories">
-    <h2 class="stories__title">Истории неизлечимых привычек</h2>
-    <div class="stories__container">
-      <ul class="stories__list">
-        <li class="stories__item" v-for="story in stories" :key="story.id">
-          <Story
-            :img="story.img"
-            :text="story.text"
-            :author="story.author"
-            :id="`/stories/${story.id}`"
-          />
-        </li>
-      </ul>
+  <Container>
+    <div class="stories">
+      <h2 class="stories__title">Истории неизлечимых привычек</h2>
+      <div class="stories__container">
+        <ul class="stories__list">
+          <li class="stories__item" v-for="story in stories" :key="story.id">
+            <Story
+              :img="story.img"
+              :text="story.text"
+              :author="story.author"
+              :id="`/stories/${story.id}`"
+            />
+          </li>
+        </ul>
+      </div>
+      <ShowMore />
     </div>
-    <ShowMore />
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from '@/components/Container.vue';
 import ShowMore from '@/components/UI/ShowMoreButton.vue';
 import Story from '@/components/Story.vue';
 export default {
   components: {
+    Container,
     ShowMore,
     Story,
   },
@@ -98,7 +102,6 @@ export default {
 }
 
 .stories {
-  max-width: calc(1440px - 120px);
   min-height: 689px;
   margin: 0 auto;
   margin-top: 100px;

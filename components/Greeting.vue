@@ -8,11 +8,11 @@
 </template>
 
 <script>
-  import Container from '@/components/Container.vue';
+import Container from '@/components/Container.vue';
 export default {
-   components: {
+  components: {
     Container,
-  }
+  },
 };
 </script>
 
@@ -37,13 +37,12 @@ export default {
 
 .greeting__arrow {
   position: absolute;
-  left:50%;
+  left: 50%;
   bottom: 50px;
   width: 24px;
   height: 24px;
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
   transform: rotate(135deg) skew(10deg, 10deg) translateX(50%);
-
 }
 </style>
