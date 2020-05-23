@@ -85,4 +85,16 @@ export default {
 .statistics-wrapper {
   margin: 100px auto;
 }
+
+@media screen and (max-width: 1280px) {
+  .video {
+    margin: 80px auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 320px) {
+}
 </style>

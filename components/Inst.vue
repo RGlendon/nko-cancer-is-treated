@@ -1,27 +1,33 @@
 <template>
-  <div class="inst">
-    <div>
-      <h1 class="inst__title">
-        <span class="inst__underline">Инстаграм</span>
-      </h1>
+  <Container>
+    <div class="inst">
+      <div>
+        <h1 class="inst__title">
+          <span class="inst__underline">Инстаграм</span>
+        </h1>
 
-      <p class="inst__text">
-        Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-        Все истории, где нет нецензурных выражений и запрещенного контента
-        попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-        пропустили вашу историю.
-      </p>
+        <p class="inst__text">
+          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+          Все истории, где нет нецензурных выражений и запрещенного контента
+          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+          пропустили вашу историю.
+        </p>
+      </div>
+      <ul class="inst__grid">
+        <li v-for="item in items" :key="item.id">
+          <img class="inst__item" :src="item.img" />
+        </li>
+      </ul>
     </div>
-    <ul class="inst__grid">
-      <li v-for="item in items" :key="item.id">
-        <img class="inst__item" :src="item.img" />
-      </li>
-    </ul>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from '@/components/Container.vue';
 export default {
+  components: {
+    Container,
+  },
   data() {
     return {
       items: [
@@ -67,11 +73,11 @@ export default {
 
 <style scoped>
 .inst {
-  max-width: 1320px;
+  max-width: 1440px;
   min-height: 420px;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 0 auto 0;
 }
 
 .inst__title {
@@ -95,7 +101,7 @@ export default {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  color: #666666;
+  color: #666;
 }
 
 .inst__grid {
@@ -114,5 +120,147 @@ export default {
   width: 195px;
   height: 195px;
   background: #ededed;
+}
+@media screen and (max-width: 1280px) {
+  .inst {
+    max-width: 1280px;
+    min-height: 369px;
+  }
+
+  .inst__title {
+    width: 367px;
+    min-height: 32px;
+    margin: 0 0 30px 0;
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .inst__text {
+    width: 305px;
+    min-height: 160px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .inst__grid {
+    width: 792px;
+    height: 369px;
+    grid-template-columns: repeat(auto-fill, 171px);
+    grid-column-gap: 27px;
+    grid-row-gap: 27px;
+  }
+
+  .inst__item {
+    width: 171px;
+    height: 171px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .inst {
+    max-width: 1024px;
+    min-height: 292px;
+  }
+
+  .inst__title {
+    width: 288px;
+    min-height: 28px;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .inst__text {
+    width: 260px;
+    min-height: 112px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .inst__grid {
+    width: 604px;
+    height: 292px;
+    grid-template-columns: repeat(auto-fill, 136px);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  .inst__item {
+    width: 136px;
+    height: 136px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .inst {
+    max-width: 768px;
+    min-height: 528px;
+    flex-direction: column;
+  }
+
+  .inst__title {
+    width: 380px;
+    min-height: 28px;
+    margin: 0 auto 26px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .inst__text {
+    width: 390px;
+    height: 80px;
+    margin: 0 auto 0;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .inst__grid {
+    width: 688px;
+    height: 334px;
+    margin: 0 auto 0;
+    grid-template-columns: repeat(auto-fill, 157px);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  .inst__item {
+    width: 157px;
+    height: 157px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .inst {
+    max-width: 320px;
+    min-height: 780px;
+    flex-direction: column;
+  }
+
+  .inst__title {
+    width: 290px;
+    min-height: 21px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .inst__text {
+    width: 290px;
+    height: 112px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .inst__grid {
+    width: 290px;
+    height: 590px;
+    margin: 0 auto 0;
+    grid-template-columns: repeat(auto-fill, 140px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+  .inst__item {
+    width: 140px;
+    height: 140px;
+  }
 }
 </style>
