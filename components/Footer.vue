@@ -39,6 +39,7 @@
 <script>
 import Container from '@/components/Container.vue';
 import Menu from '@/components/Menu.vue';
+
 export default {
   components: {
     Container,

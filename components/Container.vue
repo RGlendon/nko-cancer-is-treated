@@ -15,8 +15,27 @@ export default {
 <style scoped>
 .container {
   max-width: 1440px;
-  padding: 0px 60px;
+  padding: 0 60px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    padding: 0 15px;
+  }
 }
 </style>
