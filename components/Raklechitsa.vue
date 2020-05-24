@@ -1,6 +1,6 @@
 <template>
-  <div class="raklechitsa">
-    <div class="raklechitsa__wrap">
+  <Container>
+    <div class="raklechitsa">
       <h2 class="raklechitsa__title">#РАКЛЕЧИТСЯ</h2>
       <div class="raklechitsa__columns">
         <div class="raklechitsa__brief">
@@ -13,13 +13,13 @@
         <div class="raklechitsa__column">
           <div class="raklechitsa__links">
             <a
-              class="raklechitsa__variant raklechitsa__link1"
+              class="raklechitsa__variant raklechitsa__link"
               :class="{ tellStory__variant_active: option === 0 }"
               v-on:click="selectOption(0)"
               >Рак Лечится</a
             >
             <a
-              class="raklechitsa__variant raklechitsa__link2"
+              class="raklechitsa__variant raklechitsa__link"
               :class="{ tellStory__variant_active: option === 1 }"
               v-on:click="selectOption(1)"
               >Фонд Хабенского</a
@@ -32,14 +32,16 @@
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 </template>
 
 <script>
+import Container from '@/components/Container.vue';
 import Button from '@/components/UI/Button.vue';
 
 export default {
   components: {
+    Container,
     Button,
   },
 
@@ -81,10 +83,10 @@ export default {
   font-weight: normal;
   cursor: pointer;
   color: #c9c9c9;
+  margin-bottom: 10px;
 }
 
 .raklechitsa {
-  max-width: 1440px;
   height: 650px;
   margin: 0 auto;
   background: #613a93;
@@ -101,8 +103,9 @@ export default {
   font-size: 64px;
   line-height: 77px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
+  padding-top: 90px;
 }
 
 .raklechitsa__columns {
@@ -131,7 +134,7 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
 }
 
@@ -145,18 +148,7 @@ export default {
   margin-top: 32px;
 }
 
-.raklechitsa__link1 {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: right;
-  color: #c9c9c9;
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.raklechitsa__link2 {
+.raklechitsa__link {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
@@ -173,7 +165,218 @@ export default {
 
 .tellStory__variant_active {
   font-weight: 500;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+  .raklechitsa__title {
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding-top: 80px;
+  }
+  .raklechitsa__about {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .raklechitsa__about-text {
+    max-width: 305px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 30px;
+  }
+
+  .raklechitsa__main-text {
+    max-width: 578px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .raklechitsa__title {
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 63px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding-top: 80px;
+  }
+  .raklechitsa__about {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .raklechitsa__about-text {
+    max-width: 260px;
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 30px;
+  }
+
+  .raklechitsa__variant {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: normal;
+    cursor: pointer;
+    color: #c9c9c9;
+    margin-bottom: 10px;
+  }
+
+  .raklechitsa__main-text {
+    max-width: 447px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 19px;
+    color: #dedede;
+    margin: 0;
+  }
+  .tellStory__variant_active {
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .raklechitsa__title {
+    display: none;
+  }
+  .raklechitsa__columns {
+    display: table;
+    /* justify-content: end; */
+    margin-top: 70px;
+    margin: 0 auto;
+  }
+  .raklechitsa__column {
+    display: block;
+    margin-top: 80px;
+  }
+
+  .raklechitsa__links {
+    display: flex;
+  }
+
+  .raklechitsa__link {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: normal;
+    cursor: pointer;
+    color: #c9c9c9;
+    margin-right: 30px;
+    padding: 6px;
+  }
+
+  .tellStory__variant_active {
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+  }
+
+  .raklechitsa__brief {
+    display: block;
+    margin-top: 80px;
+  }
+
+  .raklechitsa__about {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  .raklechitsa__about-text {
+    max-width: 380px;
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 26px;
+  }
+
+  .raklechitsa__main-text {
+    max-width: 380px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 19px;
+    color: #dedede;
+    margin-top: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .raklechitsa__title {
+    display: none;
+  }
+  .raklechitsa__columns {
+    display: table;
+    /* justify-content: end; */
+    margin-top: 70px;
+    margin: 0 auto;
+  }
+  .raklechitsa__column {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .raklechitsa__links {
+    display: flex;
+    margin-right: 0px;
+  }
+
+  .raklechitsa__link {
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: normal;
+    cursor: pointer;
+    color: #c9c9c9;
+    margin-right: 20px;
+    padding: 6px;
+  }
+
+  .tellStory__variant_active {
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+  }
+
+  .raklechitsa__brief {
+    display: block;
+    margin-top: 50px;
+  }
+
+  .raklechitsa__about {
+    font-size: 18px;
+    line-height: 21px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+  }
+
+  .raklechitsa__about-text {
+    max-width: 380px;
+    font-size: 13px;
+    line-height: 16px;
+    margin-top: 16px;
+  }
+
+  .raklechitsa__main-text {
+    max-width: 380px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 19px;
+    color: #dedede;
+    margin-top: 0px;
+  }
+
+  .raklechitsa {
+    width: 290px;
+    height: 628px;
+    margin: 0 auto;
+    background: #613a93;
+  }
 }
 </style>
