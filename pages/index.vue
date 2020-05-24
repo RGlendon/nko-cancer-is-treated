@@ -23,7 +23,7 @@
       <Statistics />
     </div>
     <!--    TODO: block #РакЛечится - Responsible - Oleg-->
-    <Raklechitsa />
+    <Raklechitsa class="raklechitsa" />
   </div>
 </template>
 
@@ -60,6 +60,10 @@ export default {
 
 .greeting {
   margin: 0;
+}
+
+.raklechitsa {
+  margin: 0 auto;
 }
 
 .inst {
