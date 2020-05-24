@@ -49,6 +49,10 @@ export default {
   background-color: transparent;
 }
 
+.greeting__arrow:focus {
+  outline: none;
+}
+
 .greeting__arrow:hover {
   opacity: 0.8;
 }
