@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container class="footer_container">
     <footer class="footer">
       <div class="footer__upper-block">
         <h2 class="footer__title">
@@ -59,6 +59,10 @@ export default {
 </script>
 
 <style scoped>
+.footer_container {
+  background-color: var(--color-lightGray);
+}
+
 .footer {
   padding-top: 60px;
   padding-bottom: 60px;
