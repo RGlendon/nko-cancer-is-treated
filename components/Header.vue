@@ -1,20 +1,44 @@
 <template>
-  <header class="header">
-    <p class="header__title">
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <nav class="header__menu">
-      <nuxt-link to="/" class="header__menu-link">Главная</nuxt-link>
-      <nuxt-link to="/stories" class="header__menu-link">Истории</nuxt-link>
-      <nuxt-link to="/tellus" class="header__menu-link"
-        >Рассказать историю</nuxt-link
-      >
-    </nav>
-  </header>
+  <Container>
+    <header class="header">
+      <p class="header__title">
+        Проект Благотворительного Фонда Константина Хабенского
+      </p>
+      <nav class="header__menu">
+        <Menu :menu="menu" className="underline" />
+      </nav>
+    </header>
+  </Container>
 </template>
 
 <script>
-export default {};
+import Menu from './Menu';
+import Container from './Container';
+
+export default {
+  components: { Container, Menu },
+  data() {
+    return {
+      menu: [
+        {
+          path: '/',
+          title: 'Главная',
+          id: 'index',
+        },
+        {
+          path: '/stories',
+          title: 'Истории',
+          id: 'stories',
+        },
+        {
+          path: '/tellus',
+          title: 'Рассказать историю',
+          id: 'tellstory',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -22,7 +46,7 @@ export default {};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1320px;
+  max-width: 100%;
   height: 5.277vw;
   max-height: 76px;
   margin: 0 auto;
