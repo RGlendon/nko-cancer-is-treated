@@ -6,7 +6,7 @@
           Спасибо всем, кто помог состояться этому проекту
         </h2>
         <nav class="footer__menu">
-          <Menu />
+          <Menu :menu="menu" />
         </nav>
         <div class="footer__social-blok">
           <p class="footer__social-link-text">
@@ -44,6 +44,7 @@
 <script>
 import Container from '@/components/Container.vue';
 import Menu from '@/components/Menu.vue';
+import MenuNew from './Menu';
 
 export default {
   components: {
@@ -53,6 +54,18 @@ export default {
   data() {
     return {
       Year: new Date().getFullYear(),
+      menu: [
+        {
+          path: '/',
+          title: 'Главная',
+          id: 'index',
+        },
+        {
+          path: '/stories',
+          title: 'Истории',
+          id: 'stories',
+        },
+      ],
     };
   },
 };

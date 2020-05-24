@@ -1,16 +1,18 @@
 <template>
-  <ul class="menu">
-    <li class="menu__item">
-      <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
-    </li>
-    <li class="menu__item">
-      <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
+  <ul :class="['menu', `menu_link_${className}`]">
+    <li class="menu__item" v-for="link in menu" :key="link.id">
+      <nuxt-link :to="link.path" class="menu__link">{{ link.title }}</nuxt-link>
     </li>
   </ul>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    className: String,
+    menu: Object,
+  },
+};
 </script>
 
 <style scoped>
@@ -31,6 +33,10 @@ export default {};
   line-height: 1.5;
   text-decoration: none;
   color: black;
+}
+
+.menu_link_underline .nuxt-link-exact-active {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 1280px) {
