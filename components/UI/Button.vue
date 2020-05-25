@@ -1,6 +1,10 @@
 <template>
   <button
-    :class="['button', `button_${size}`, { button_disabled: disabled }]"
+    :class="[
+      'button',
+      { button_small: size === 'small' },
+      { button_disabled: disabled },
+    ]"
     :disabled="disabled"
     v-on:click="handleClick"
   >
@@ -31,6 +35,7 @@ export default {
   padding: 16px 80px;
   border: 0;
   cursor: pointer;
+  outline: none;
 
   color: var(--color-lightgray2);
   font-family: Inter, sans-serif;

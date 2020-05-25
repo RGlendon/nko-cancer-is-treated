@@ -36,6 +36,11 @@ export default {
   line-height: 24px;
   padding: 12px 6px;
   background: transparent;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-gray3);
 }
 
 .input_bottom-bordered {
