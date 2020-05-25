@@ -2,9 +2,9 @@
   <Container>
     <div class="inst">
       <div class="inst__container">
-        <h1 class="inst__title">
+        <h3 class="inst__title">
           <span class="inst__underline">Инстаграм</span>
-        </h1>
+        </h3>
         <p class="inst__text">
           Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
           Все истории, где нет нецензурных выражений и запрещенного контента
@@ -92,7 +92,6 @@ export default {
 }
 
 .inst__underline {
-  /*width: 174px;*/
   border-bottom: 3px solid currentColor;
 }
 

@@ -10,20 +10,19 @@
           страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
           с их историями.
         </p>
-
-        <div class="arrow__container">
-          <div class="arrow__wrapper">
-            <div class="arrow arrow__left arrow_active"></div>
-          </div>
-          <div class="arrow__wrapper">
-            <div class="arrow arrow__right"></div>
-          </div>
-        </div>
+      </div>
+      <div class="arrow__wrapper-one">
+        <div class="arrow arrow__left arrow_active"></div>
+      </div>
+      <div class="arrow__wrapper-two">
+        <div class="arrow arrow__right"></div>
       </div>
       <div class="video__container">
         <div class="video__block">
-          <div class="video__circle"></div>
-          <div class="video__triangle"></div>
+          <div class="video__play">
+            <div class="video__circle"></div>
+            <div class="video__triangle"></div>
+          </div>
         </div>
         <div class="video__memo">
           Все видео вы можете найте на
@@ -45,11 +44,10 @@ export default {
 
 <style scoped>
 .video {
-  background-color: #fff;
-  width: 1440px;
   min-height: 476px;
   display: flex;
   flex-direction: row;
+  background-color: #fff;
 }
 
 .video__title {
@@ -75,9 +73,34 @@ export default {
   color: #666;
 }
 
+.arrow__wrapper-one {
+  position: absolute;
+  margin-top: 410px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbfbfb;
+  cursor: pointer;
+}
+
+.arrow__wrapper-two {
+  position: absolute;
+  margin-top: 410px;
+  margin-left: 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbfbfb;
+  cursor: pointer;
+}
+
 .video__container {
   margin-left: 40px;
-  width: 870px;
+  width: 867px;
 }
 
 .video__block {
@@ -86,18 +109,23 @@ export default {
   background: #ededed;
 }
 
+.video__play {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  margin: 180px 0 0 388px;
+}
 .video__circle {
   width: 90px;
   height: 90px;
-  margin: 180px 0 0 388px;
   background-color: #c4c4c4;
   border-radius: 50%;
 }
 
 .video__triangle {
   position: absolute;
-  margin-left: 420px;
-  margin-top: 205px;
+  margin-top: 25px;
+  margin-left: 30px;
   border-top: 20px solid transparent;
   border-left: 35px solid #fff;
   border-bottom: 20px solid transparent;
@@ -117,21 +145,6 @@ export default {
 .line {
   text-decoration: underline;
   color: #666;
-}
-
-.arrow__container {
-  margin-top: 162px;
-  display: flex;
-}
-
-.arrow__wrapper {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fbfbfb;
-  cursor: pointer;
 }
 
 .arrow {
@@ -155,15 +168,11 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .video {
-    background-color: #fff;
-    max-width: 1280px;
-    min-height: 476px;
-    display: flex;
-    flex-direction: row;
+    min-height: 426px;
   }
 
   .video__title {
-    max-width: 365px;
+    max-width: 367px;
     min-height: 96px;
     margin-bottom: 30px;
     font-size: 28px;
@@ -177,41 +186,33 @@ export default {
     line-height: 20px;
   }
 
-  .video__container {
+  .arrow__wrapper-one {
+    margin-top: 360px;
+  }
+
+  .arrow__wrapper-two {
+    margin-top: 360px;
     margin-left: 40px;
-    width: 770px;
-    height: 400px;
+  }
+
+  .video__container {
+    width: 773px;
   }
 
   .video__block {
     height: 400px;
-    display: flex;
-    background: #ededed;
   }
 
-  .video__circle {
-    margin: 150px 0 0 330px;
-  }
-
-  .video__triangle {
-    position: absolute;
-    margin-left: 360px;
-    margin-top: 175px;
+  .video__play {
+    margin: 162px 0 0 348px;
   }
 
   .video__memo {
-    font-size: 12px;
-    line-height: 16px;
-  }
-
-  .arrow__container {
-    margin-top: 136px;
-    display: flex;
+    max-width: 773px;
   }
 }
 @media screen and (max-width: 1024px) {
   .video {
-    max-width: 1024px;
     min-height: 340px;
   }
 
@@ -230,36 +231,35 @@ export default {
     line-height: 16px;
   }
 
+  .arrow__wrapper-one {
+    margin-top: 274px;
+  }
+
+  .arrow__wrapper-two {
+    margin-top: 274px;
+    margin-left: 40px;
+  }
+
   .video__container {
     margin-left: 30px;
     width: 606px;
-    height: 314px;
   }
 
   .video__block {
     height: 314px;
   }
 
-  .video__circle {
-    margin: 110px 0 0 250px;
+  .video__play {
+    margin: 119px 0 0 265px;
   }
 
-  .video__triangle {
-    position: absolute;
-    margin-left: 280px;
-    margin-top: 135px;
-  }
-
-  .arrow__container {
-    margin-top: 80px;
-    display: flex;
+  .video__memo {
+    max-width: 606px;
   }
 }
 @media screen and (max-width: 768px) {
   .video {
-    width: 768px;
     min-height: 526px;
-    display: flex;
     flex-direction: column;
   }
 
@@ -269,60 +269,62 @@ export default {
     margin: 0 auto 26px;
     font-size: 24px;
     line-height: 28px;
+    text-align: center;
   }
 
   .video__text {
     max-width: 380px;
     min-height: 48px;
-    margin: 0 auto 190px;
+    margin: 0 auto 60px;
     font-size: 13px;
     line-height: 16px;
   }
 
+  .arrow__wrapper-one {
+    margin-top: 340px;
+    margin-left: -54px;
+  }
+
+  .arrow__wrapper-two {
+    margin-top: 340px;
+    margin-left: 594px;
+  }
+
   .video__container {
-    position: absolute;
-    margin-top: 200px;
     width: 580px;
+    margin: 0 auto 0;
   }
 
   .video__block {
     height: 300px;
-    display: flex;
-    background: #ededed;
+  }
+
+  .video__play {
+    width: 76px;
+    height: 76px;
+    margin: 110px 0 0 250px;
   }
 
   .video__circle {
-    width: 90px;
-    height: 90px;
-    margin: 105px 0 0 250px;
-    background-color: #c4c4c4;
-    border-radius: 50%;
+    width: 76px;
+    height: 76px;
   }
 
   .video__triangle {
-    position: absolute;
-    margin-left: 280px;
-    margin-top: 130px;
+    margin-top: 20px;
+    margin-left: 30px;
+    border-top: 17.5px solid transparent;
+    border-left: 25px solid #fff;
+    border-bottom: 17.5px solid transparent;
   }
 
-  .line {
-    text-decoration: underline;
-    color: #666;
-  }
-
-  .arrow__container {
-    display: flex;
-  }
-
-  .arrow__wrapper {
-    margin-right: 580px;
+  .video__memo {
+    max-width: 580px;
   }
 }
 @media screen and (max-width: 320px) {
   .video {
-    width: 320px;
     min-height: 312px;
-    display: flex;
     flex-direction: column;
   }
 
@@ -332,50 +334,58 @@ export default {
     margin: 0 auto 16px;
     font-size: 18px;
     line-height: 21px;
+    text-align: center;
   }
 
   .video__text {
     max-width: 290px;
     min-height: 64px;
-    margin: 0 auto 107px;
+    margin: 0 auto 40px;
     font-size: 13px;
     line-height: 16px;
   }
 
+  .arrow__wrapper-one {
+    margin-top: 220px;
+    margin-left: 0px;
+    background: none;
+  }
+
+  .arrow__wrapper-two {
+    margin-top: 220px;
+    margin-left: 250px;
+    background: none;
+  }
+
   .video__container {
-    position: absolute;
     width: 290px;
-    margin: 175px auto 0;
-    z-index: 0;
+    margin: 0 auto 0;
   }
 
   .video__block {
     height: 150px;
-    display: flex;
-    background: #ededed;
+  }
+
+  .video__play {
+    width: 38px;
+    height: 38px;
+    margin: 60px 0 0 130px;
   }
 
   .video__circle {
-    width: 90px;
-    height: 90px;
-    margin: 105px 0 0 250px;
-    background-color: #c4c4c4;
-    border-radius: 50%;
-    display: none;
+    width: 38px;
+    height: 38px;
   }
 
   .video__triangle {
     position: absolute;
-    margin-left: 280px;
-    margin-top: 150px;
-    display: none;
+    margin-top: 10px;
+    margin-left: 12.5px;
+    border-top: 10px solid transparent;
+    border-left: 17.5px solid #fff;
+    border-bottom: 10px solid transparent;
   }
 
-  .arrow__wrapper {
-    margin-right: 230px;
-    z-index: 1;
-    background: #ededed;
-  }
   .video__memo {
     display: none;
   }
