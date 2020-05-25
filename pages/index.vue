@@ -1,15 +1,15 @@
 <template>
   <div class="general">
     <!--    TODO: greeting - Responsible - Alexander-->
-    <Greeting class="greeting" />
+    <!--    <Greeting class="greeting" />-->
     <!--    TODO: block with video - Responsible - Pavel-->
     <Video class="video" />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <InscriptionUpper class="inscriptionUpper" />
+    <!--    <InscriptionUpper class="inscriptionUpper" />-->
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
-    <Stories />
+    <!--    <Stories />-->
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <InscriptionBottom class="inscriptionBottom" />
+    <!--    <InscriptionBottom class="inscriptionBottom" />-->
     <!--    TODO: block Instagram - Responsible - Dmitry-->
     <div class="inst">
       <Inst />
@@ -19,9 +19,9 @@
       <TellUsStory />
     </div>
     <!--    TODO: block Statistics - Responsible - Mikhail-->
-    <div class="statistics-wrapper">
-      <Statistics />
-    </div>
+    <!--    <div class="statistics-wrapper">-->
+    <!--      <Statistics />-->
+    <!--    </div>-->
     <!--    TODO: block #РакЛечится - Responsible - Oleg-->
     <Raklechitsa class="raklechitsa" />
   </div>
@@ -75,7 +75,7 @@ export default {
 }
 
 .tellStory {
-  margin: 0 auto;
+  margin: 100px auto;
 }
 
 .inscriptionUpper {
@@ -88,5 +88,39 @@ export default {
 
 .statistics-wrapper {
   margin: 100px auto;
+}
+
+@media screen and (max-width: 1280px) {
+  .video {
+    margin: 80px auto;
+  }
+
+  .inst {
+    margin: 90px auto;
+  }
+
+  .tellStory {
+    margin: 90px auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .inst {
+    margin: 80px auto;
+  }
+
+  .tellStory {
+    margin: 80px auto;
+  }
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 320px) {
+  .inst {
+    margin: 50px auto;
+  }
+
+  .tellStory {
+    margin: 50px auto;
+  }
 }
 </style>
