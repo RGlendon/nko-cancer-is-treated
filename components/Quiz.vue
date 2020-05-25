@@ -21,9 +21,7 @@
           @btnClick="onNext(content, currentQuestion)"
           >Далее</Button
         >
-        <!-- <Button v-if="currentQuestion < count - 1" @btnClick="onNext">Далее</Button> -->
         <Button v-else @btnClick="submitPopupForm">Отправить</Button>
-        <!-- <Button v-else>Отправить</Button> -->
       </div>
     </div>
     <div class="quiz" v-else>
@@ -74,9 +72,6 @@ export default {
 </script>
 
 <style scoped>
-.quiz {
-}
-
 .quiz__title {
   font-weight: 600;
   font-size: 32px;
