@@ -19,7 +19,7 @@
       <TellUsStory />
     </div>
     <!--    TODO: block Statistics - Responsible - Mikhail-->
-    <div class="statistics-wrapper">
+    <div class="statistics">
       <Statistics />
     </div>
     <!--    TODO: block #РакЛечится - Responsible - Oleg-->
@@ -71,7 +71,7 @@ export default {
 }
 
 .raklechitsa {
-  margin: 0 auto;
+  margin: 90px auto;
 }
 
 .inst {
@@ -90,7 +90,7 @@ export default {
   margin: 74px auto 0;
 }
 
-.statistics-wrapper {
+.statistics {
   margin: 100px auto;
 }
 
