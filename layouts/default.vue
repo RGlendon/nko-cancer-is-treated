@@ -2,6 +2,8 @@
   <div>
     <Header />
     <nuxt />
+    <Overlay v-if="popupShown" @overlayClick="togglePopup" />
+    <Popup v-if="popupShown">покажись!</Popup>
     <Footer />
   </div>
 </template>
@@ -9,11 +11,25 @@
 <script>
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Overlay from '../components/UI/Overlay';
+import Popup from '../components/Popup';
 
 export default {
   components: {
+    Popup,
     Footer,
     Header,
+    Overlay,
+  },
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown'];
+    },
+  },
+  methods: {
+    togglePopup() {
+      return this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>

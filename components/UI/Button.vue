@@ -30,6 +30,7 @@ export default {
   white-space: nowrap;
   padding: 16px 80px;
   border: 0;
+  cursor: pointer;
 
   color: var(--color-lightgray2);
   font-family: Inter, sans-serif;

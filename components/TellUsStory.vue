@@ -27,7 +27,10 @@
           </div>
           <div class="tell__container">
             <p class="tell__main-text">{{ options[option] }}></p>
-            <Button size="small">Заполнить форму</Button>
+            <Button v-if="option === 0" size="small" @btnClick="togglePopup"
+              >Заполнить форму</Button
+            >
+            <Button v-else size="small">Оставить контакт</Button>
           </div>
         </div>
       </div>
@@ -48,6 +51,9 @@ export default {
   methods: {
     selectOption: function(number) {
       this.option = number;
+    },
+    togglePopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
 
