@@ -5,7 +5,7 @@
         Проект Благотворительного Фонда Константина Хабенского
       </p>
       <nav class="header__menu">
-        <Menu :menu="menu" className="underline" />
+        <Menu :menu="menu" isUnderlined="true" />
       </nav>
     </header>
   </Container>
@@ -24,14 +24,15 @@ export default {
           path: '/',
           title: 'Главная',
           id: 'index',
+          isUnderlined: true,
         },
         {
           path: '/stories',
           title: 'Истории',
           id: 'stories',
+          isUnderlined: true,
         },
         {
-          path: '/tellus',
           title: 'Рассказать историю',
           id: 'tellstory',
         },

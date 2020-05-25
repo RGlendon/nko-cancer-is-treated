@@ -1,7 +1,15 @@
 <template>
-  <ul :class="['menu', `menu_link_${className}`]">
+  <ul class="menu">
     <li class="menu__item" v-for="link in menu" :key="link.id">
-      <nuxt-link :to="link.path" class="menu__link">{{ link.title }}</nuxt-link>
+      <nuxt-link
+        v-if="link.path"
+        :to="link.path"
+        :class="['menu__link', { menu_link_underline: link.isUnderlined }]"
+        >{{ link.title }}</nuxt-link
+      >
+      <button v-else class="menu__button" @click="togglePopup">
+        {{ link.title }}
+      </button>
     </li>
   </ul>
 </template>
@@ -9,8 +17,12 @@
 <script>
 export default {
   props: {
-    className: String,
-    menu: Object,
+    menu: Array,
+  },
+  methods: {
+    togglePopup() {
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>
@@ -28,14 +40,23 @@ export default {
 }
 
 .menu__link {
-  font-weight: normal;
   font-size: 18px;
   line-height: 1.5;
   text-decoration: none;
   color: black;
 }
 
-.menu_link_underline .nuxt-link-exact-active {
+.menu__button {
+  border: 0;
+  background-color: transparent;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.menu_link_underline.nuxt-link-exact-active {
   text-decoration: underline;
 }
 
