@@ -1,12 +1,12 @@
 <template>
-  <Container class="footer_container">
+  <Container class="container_footer">
     <footer class="footer">
       <div class="footer__upper-block">
         <h2 class="footer__title">
           Спасибо всем, кто помог состояться этому проекту
         </h2>
         <nav class="footer__menu">
-          <Menu :menu="menu" />
+          <Menu :menu="menu" :className="'menu_footer'" />
         </nav>
         <div class="footer__social-blok">
           <p class="footer__social-link-text">
@@ -72,8 +72,8 @@ export default {
 </script>
 
 <style scoped>
-.footer_container {
-  background-color: var(--color-lightGray);
+.container_footer {
+  background-color: var(--color-lightgray);
 }
 
 .footer {
@@ -88,8 +88,9 @@ export default {
 }
 
 .footer__title {
-  max-width: 305px;
+  width: 10.89em;
   margin: 0;
+  margin-right: 160px;
   font-weight: 600;
   font-size: 28px;
   line-height: 1.14;
@@ -149,7 +150,7 @@ export default {
   }
 
   .footer__title {
-    font-size: 28px;
+    margin-right: 102px;
   }
 
   .footer__social-blok {
@@ -173,6 +174,7 @@ export default {
 
   .footer__title {
     font-size: 24px;
+    margin-right: 25px;
   }
 
   .footer__social-blok {
@@ -189,8 +191,12 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .footer__title {
+    width: 24em;
+  }
+
   .footer__menu {
-    width: 30%;
+    max-width: 30%;
   }
 
   .footer__social-link-text {
