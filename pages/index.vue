@@ -1,7 +1,7 @@
 <template>
   <div class="general">
     <!--    TODO: greeting - Responsible - Alexander-->
-    <!--    <Greeting class="greeting" />-->
+    <Greeting class="greeting" />
     <!--    TODO: block with video - Responsible - Pavel-->
     <Video class="video" />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
@@ -107,6 +107,7 @@ export default {
     margin: 90px auto;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .inst {
     margin: 80px auto;
@@ -116,8 +117,10 @@ export default {
     margin: 80px auto;
   }
 }
+
 @media screen and (max-width: 768px) {
 }
+
 @media screen and (max-width: 320px) {
   .inst {
     margin: 50px auto;
