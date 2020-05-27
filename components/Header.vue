@@ -7,6 +7,7 @@
       <nav class="header__menu">
         <Menu :menu="menu" isUnderlined="true" />
       </nav>
+      <MobileIcon class="header__mobile-icon" />
     </header>
   </Container>
 </template>
@@ -14,9 +15,10 @@
 <script>
 import Menu from './Menu';
 import Container from './Container';
+import MobileIcon from './UI/MobileIcon';
 
 export default {
-  components: { Container, Menu },
+  components: { Container, Menu, MobileIcon },
   data() {
     return {
       menu: [
@@ -48,8 +50,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
-  height: 5.277vw;
-  max-height: 76px;
+  height: 76px;
   margin: 0 auto;
 }
 
@@ -57,19 +58,47 @@ export default {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  width: 25.75%;
+  width: 18em;
 }
 
-.header__menu-link {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  text-decoration: none;
-  margin-left: 40px;
-  color: black;
+.header__menu {
 }
 
-.nuxt-link-exact-active {
-  text-decoration: underline;
+.header__mobile-icon {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .header {
+    height: 72px;
+  }
+
+  .header__title {
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .header__menu {
+    display: none;
+  }
+
+  .header__mobile-icon {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    height: 72px;
+  }
+
+  .header__title {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 </style>

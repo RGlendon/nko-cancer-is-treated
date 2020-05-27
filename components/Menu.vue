@@ -1,5 +1,5 @@
 <template>
-  <ul class="menu">
+  <ul :class="['menu', className]">
     <li class="menu__item" v-for="link in menu" :key="link.id">
       <nuxt-link
         v-if="link.path"
@@ -18,6 +18,7 @@
 export default {
   props: {
     menu: Array,
+    className: String,
   },
   methods: {
     togglePopup() {
@@ -33,17 +34,16 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
-}
 
-.menu__item {
-  margin-left: 40px;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .menu__link {
-  font-size: 18px;
-  line-height: 1.5;
   text-decoration: none;
   color: black;
+
+  margin-right: 40px;
 }
 
 .menu__button {
@@ -61,37 +61,48 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .menu__link {
+  .menu {
+    font-size: 16px;
+  }
+  .menu__button {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .menu {
+  .menu_footer {
     flex-direction: column;
   }
 
-  .menu__item {
+  .menu_footer .menu__item {
     margin-bottom: 14px;
+    margin-right: 0;
+  }
+
+  .menu__link {
+    margin-right: 30px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .menu {
     flex-direction: column;
+
+    font-size: 13px;
+    line-height: 16px;
   }
 
-  .menu :last-child {
+  .menu:last-child {
     margin: 0;
+  }
+
+  .menu__button {
+    font-size: 13px;
   }
 
   .menu__item {
     margin-left: 0;
     margin-bottom: 18px;
-  }
-
-  .menu__link {
-    font-size: 13px;
   }
 }
 </style>
