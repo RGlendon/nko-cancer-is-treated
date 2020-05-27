@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <div class="inst">
       <div class="inst__container">
         <h3 class="inst__title">

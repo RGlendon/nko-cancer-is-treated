@@ -1,34 +1,39 @@
 <template>
-  <section class="statistics">
-    <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
-    <div class="statistics__cards">
-      <div class="statistics__card" v-for="card in cards" :key="card.id">
-        <h3 class="statistics__card-title">{{ card.info.title }}</h3>
-        <div class="statistics__info">
-          <div
-            class="statistics__first"
-            :class="{ statistics__second: card.ui.type === 'two' }"
-          >
+  <Container :className="'container_type_margin'">
+    <section class="statistics">
+      <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
+      <div class="statistics__cards">
+        <div class="statistics__card" v-for="card in cards" :key="card.id">
+          <h3 class="statistics__card-title">{{ card.info.title }}</h3>
+          <div class="statistics__info">
             <div
-              class="statistics__one"
-              :style="{ width: card.ui.widthOne + '%' }"
-            ></div>
-            <div
-              class="statistics__two"
-              :style="{ width: card.ui.widthTwo + '%' }"
-            ></div>
+              class="statistics__first"
+              :class="{ statistics__second: card.ui.type === 'two' }"
+            >
+              <div
+                class="statistics__one"
+                :style="{ width: card.ui.widthOne + '%' }"
+              ></div>
+              <div
+                class="statistics__two"
+                :style="{ width: card.ui.widthTwo + '%' }"
+              ></div>
+            </div>
+            <p class="statistics__numbers">{{ card.info.numbers }}</p>
+            <p class="statistics__from">{{ card.info.from }}</p>
           </div>
-          <p class="statistics__numbers">{{ card.info.numbers }}</p>
-          <p class="statistics__from">{{ card.info.from }}</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </Container>
 </template>
 
 <script>
+import Container from './Container';
+
 export default {
   name: 'Statistics',
+  components: { Container },
   data() {
     return {
       cards: [
@@ -143,6 +148,7 @@ export default {
 .statistics__second {
   flex-direction: column-reverse;
 }
+
 .statistics__second div {
   height: 20px;
 }

@@ -1,29 +1,23 @@
 <template>
   <div class="general">
     <!--    TODO: greeting - Responsible - Alexander-->
-    <Greeting class="greeting" />
+    <Greeting />
     <!--    TODO: block with video - Responsible - Pavel-->
-    <Video class="video" />
+    <Video />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <Inscription class="inscription">{{ inscription[0].upper }}</Inscription>
+    <Inscription>{{ inscription[0].upper }}</Inscription>
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
     <Stories />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <Inscription class="inscription">{{ inscription[0].bottom }}</Inscription>
+    <Inscription>{{ inscription[0].bottom }}</Inscription>
     <!--    TODO: block Instagram - Responsible - Dmitry-->
-    <div class="inst">
-      <Inst />
-    </div>
+    <Inst />
     <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
-    <div class="tellStory">
-      <TellUsStory />
-    </div>
+    <TellUsStory />
     <!--    TODO: block Statistics - Responsible - Mikhail-->
-    <div class="statistics-wrapper">
-      <Statistics />
-    </div>
+    <Statistics />
     <!--    TODO: block #РакЛечится - Responsible - Oleg-->
-    <Raklechitsa class="raklechitsa" />
+    <Raklechitsa />
   </div>
 </template>
 
@@ -61,73 +55,4 @@ export default {
 };
 </script>
 
-<style>
-.general {
-  margin: 0 auto;
-}
-
-.greeting {
-  margin: 0;
-}
-
-.raklechitsa {
-  margin: 0 auto;
-}
-
-.inst {
-  margin: 100px auto;
-}
-
-.video {
-  margin: 100px auto;
-}
-
-.tellStory {
-  margin: 100px auto;
-}
-
-.inscription {
-  margin: 74px auto 0;
-}
-
-.statistics-wrapper {
-  margin: 100px auto;
-}
-
-@media screen and (max-width: 1280px) {
-  .video {
-    margin: 80px auto;
-  }
-
-  .inst {
-    margin: 90px auto;
-  }
-
-  .tellStory {
-    margin: 90px auto;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .inst {
-    margin: 80px auto;
-  }
-
-  .tellStory {
-    margin: 80px auto;
-  }
-}
-
-@media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 320px) {
-  .inst {
-    margin: 50px auto;
-  }
-
-  .tellStory {
-    margin: 50px auto;
-  }
-}
-</style>
+<style></style>

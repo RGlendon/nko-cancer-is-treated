@@ -1,5 +1,5 @@
 <template>
-  <Container class="footer_container">
+  <Container class="container_footer">
     <footer class="footer">
       <div class="footer__upper-block">
         <h2 class="footer__title">
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style scoped>
-.footer_container {
+.container_footer {
   background-color: var(--color-lightgray);
 }
 

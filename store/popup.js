@@ -1,6 +1,6 @@
 // state
 export const state = () => ({
-  popupShown: true,
+  popupShown: false,
 });
 
 // change state from here

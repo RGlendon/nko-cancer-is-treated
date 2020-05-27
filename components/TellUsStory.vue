@@ -1,5 +1,5 @@
 <template>
-  <Container class="container_tell">
+  <Container class="container_tell" :className="'container_type_margin'">
     <div class="tell">
       <div class="tell__columns">
         <div class="tell__brief">

@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container class="container_greeting">
     <div class="greeting">
       <h1 class="greeting__title">#РАКЛЕЧИТСЯ</h1>
       <button class="greeting__arrow"></button>
@@ -9,6 +9,7 @@
 
 <script>
 import Container from '@/components/Container.vue';
+
 export default {
   components: {
     Container,
@@ -17,10 +18,14 @@ export default {
 </script>
 
 <style scoped>
+.container_greeting {
+  background-color: var(--color-purple);
+}
+
 .greeting {
   position: relative;
   min-height: calc(100vh - 76px);
-  background-color: #613a93;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,6 +66,7 @@ export default {
   .greeting {
     min-height: calc(100vh - 72px);
   }
+
   .greeting__title {
     font-size: 78px;
   }
@@ -76,6 +82,7 @@ export default {
   .greeting {
     min-height: calc(100vh - 64px);
   }
+
   .greeting__title {
     font-size: 36px;
   }
