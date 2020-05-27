@@ -7,7 +7,9 @@
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <Inscription class="inscription">{{ inscription[0].upper }}</Inscription>
     <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
-    <Stories />
+    <div class="stories">
+      <Stories />
+    </div>
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
     <Inscription class="inscription">{{ inscription[0].bottom }}</Inscription>
     <!--    TODO: block Instagram - Responsible - Dmitry-->
@@ -72,6 +74,10 @@ export default {
 
 .raklechitsa {
   margin: 0 auto;
+}
+
+.stories {
+  margin: 100px auto;
 }
 
 .inst {
