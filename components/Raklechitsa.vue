@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container class="container_raklechitsa">
     <div class="raklechitsa">
       <h2 class="raklechitsa__title">#РАКЛЕЧИТСЯ</h2>
       <div class="raklechitsa__columns">
@@ -77,10 +77,13 @@ export default {
 </script>
 
 <style scoped>
+.container_raklechitsa {
+  background: var(--color-purple);
+}
+
 .raklechitsa {
   height: 650px;
   margin: 0 auto;
-  background: var(--color-purple);
 }
 
 .raklechitsa__title {
@@ -214,12 +217,14 @@ export default {
   .raklechitsa__title {
     display: none;
   }
+
   .raklechitsa__columns {
     display: table;
     /* justify-content: end; */
     /*margin-top: 70px;*/
     margin: 0 auto;
   }
+
   .raklechitsa__column {
     display: block;
     margin-top: 80px;

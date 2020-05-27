@@ -150,7 +150,7 @@ export default {
 
 @media screen and (max-width: 320px) {
   .story {
-    margin-top: 46px;
+    margin-top: 30px;
   }
 
   .story__background {

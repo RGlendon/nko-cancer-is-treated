@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
     <div class="stories__container">
       <ul class="stories__list">
@@ -185,6 +185,7 @@ export default {
       flex-wrap: wrap;
       padding: 0;
       max-height: 2632px;
+      margin-top: 10px;
     }
     .stories__title {
       width: 290px;

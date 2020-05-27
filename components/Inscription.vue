@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <div class="Inscription">
       <h3 class="Inscription__text">
         <slot></slot>

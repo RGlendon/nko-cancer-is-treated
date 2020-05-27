@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <div class="video">
       <div class="video__story">
         <h1 class="video__title">
