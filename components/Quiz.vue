@@ -65,7 +65,7 @@ export default {
   },
   data() {
     return {
-      content: this.value,
+      content: '',
     };
   },
 };

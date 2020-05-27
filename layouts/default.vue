@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header />
+    <MobileMenu v-if="isMobileMenuOpened" class="main-mobile-menu" />
+    <Header class="main-header" />
     <nuxt />
     <Overlay v-if="popupShown" @overlayClick="togglePopup" />
     <Popup v-if="popupShown">
@@ -26,9 +27,11 @@ import Footer from '../components/Footer';
 import Overlay from '../components/UI/Overlay';
 import Popup from '../components/Popup';
 import Quiz from '../components/Quiz';
+import MobileMenu from '../components/MobileMenu';
 
 export default {
   components: {
+    MobileMenu,
     Popup,
     Footer,
     Header,
@@ -49,6 +52,9 @@ export default {
     answers() {
       return this.$store.getters['quiz/getAnswers'];
     },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
   },
 
   methods: {
@@ -68,22 +74,6 @@ export default {
       console.log(`отправлена форма с данными ${answers}`);
     },
   },
-
-  // data() {
-  //   return {
-  //     answers: this.answers(),
-  // data: {
-  //   1: {
-  //     title: 'title',
-  //     question: 'this is question'
-  //   },
-  //   2: {
-  //     title: 'title 2',
-  //     question: 'this is question 2'
-  //   },
-  // }
-  // }
-  // }
 };
 </script>
 
@@ -97,5 +87,24 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+.main-mobile-menu {
+  display: none;
+}
+
+.main-header {
+  border-bottom: 1px solid #efefef;
+}
+
+@media screen and (max-width: 768px) {
+  .main-mobile-menu {
+    min-height: 60px;
+    display: block;
+    border-bottom: 1px solid #efefef;
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
+    /*align-items: center;*/
+  }
 }
 </style>

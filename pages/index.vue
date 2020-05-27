@@ -1,7 +1,7 @@
 <template>
   <div class="general">
     <!--    TODO: greeting - Responsible - Alexander-->
-    <Greeting class="greeting" />
+    <!--    <Greeting class="greeting" />-->
     <!--    TODO: block with video - Responsible - Pavel-->
     <Video class="video" />
     <!--    TODO: horizontal inscription - Responsible - Alexander-->
