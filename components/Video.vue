@@ -11,23 +11,34 @@
           с их историями.
         </p>
       </div>
-      <div class="arrow__wrapper-one">
-        <div class="arrow arrow__left arrow_active"></div>
-      </div>
-      <div class="arrow__wrapper-two">
-        <div class="arrow arrow__right"></div>
-      </div>
+
       <div class="video__container">
-        <div class="video__block">
-          <div class="video__play">
-            <div class="video__circle"></div>
-            <div class="video__triangle"></div>
-          </div>
-        </div>
-        <div class="video__memo">
+        <VideoIframe class="video__block" :src="videos[currentNumber].url" />
+        <p class="video__memo">
           Все видео вы можете найте на
-          <a href="#" class="line">нашем YouTube канале</a>.
-        </div>
+          <a href="#" target="_blank" class="line">нашем YouTube канале</a>.
+        </p>
+      </div>
+
+      <div
+        class="arrow__wrapper arrow__wrapper_left"
+        @click="prevVideo"
+        :disabled="currentNumber === 0"
+      >
+        <div
+          class="arrow arrow__left"
+          :class="[{ arrow_disabled: currentNumber === 0 }]"
+        ></div>
+      </div>
+      <div
+        class="arrow__wrapper arrow__wrapper_right"
+        @click="nextVideo"
+        :disabled="currentNumber === videos.length - 1"
+      >
+        <div
+          class="arrow arrow__right"
+          :class="[{ arrow_disabled: currentNumber === videos.length - 1 }]"
+        ></div>
       </div>
     </div>
   </Container>
@@ -35,18 +46,43 @@
 
 <script>
 import Container from '@/components/Container.vue';
+import VideoIframe from './UI/VideoIframe';
+
 export default {
   components: {
+    VideoIframe,
     Container,
   },
+
+  computed: {
+    currentNumber() {
+      return this.$store.getters['video/getNumber'];
+    },
+    videos() {
+      return this.$store.getters['video/getVideos'];
+    },
+  },
+  methods: {
+    prevVideo() {
+      if (this.currentNumber === 0) return;
+      return this.$store.commit('video/prevVideo');
+    },
+    nextVideo() {
+      if (this.currentNumber === this.videos.length - 1) return;
+      return this.$store.commit('video/nextVideo');
+    },
+  },
+
+  // этот fetch не работает почему-то =(
+  // async fetch({ store, params }) {
+  //   await store.dispatch('video/fetchVideos');
+  // },
 };
 </script>
 
 <style scoped>
 .video {
-  min-height: 476px;
   display: flex;
-  flex-direction: row;
   background-color: #fff;
 }
 
@@ -55,8 +91,7 @@ export default {
   min-height: 108px;
   margin-top: 10px;
   margin-bottom: 32px;
-  font-family: Inter;
-  font-style: normal;
+
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
@@ -65,15 +100,13 @@ export default {
 .video__text {
   max-width: 350px;
   min-height: 110px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
+
   font-size: 18px;
   line-height: 22px;
   color: #666;
 }
 
-.arrow__wrapper-one {
+.arrow__wrapper {
   position: absolute;
   margin-top: 410px;
   width: 40px;
@@ -85,58 +118,24 @@ export default {
   cursor: pointer;
 }
 
-.arrow__wrapper-two {
-  position: absolute;
-  margin-top: 410px;
+.arrow__wrapper_right {
   margin-left: 40px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fbfbfb;
-  cursor: pointer;
 }
 
 .video__container {
   margin-left: 40px;
   width: 867px;
+  position: relative;
 }
 
 .video__block {
   height: 450px;
-  display: flex;
-  background: #ededed;
-}
-
-.video__play {
-  width: 90px;
-  height: 90px;
-  display: flex;
-  margin: 180px 0 0 388px;
-}
-.video__circle {
-  width: 90px;
-  height: 90px;
-  background-color: #c4c4c4;
-  border-radius: 50%;
-}
-
-.video__triangle {
-  position: absolute;
-  margin-top: 25px;
-  margin-left: 30px;
-  border-top: 20px solid transparent;
-  border-left: 35px solid #fff;
-  border-bottom: 20px solid transparent;
 }
 
 .video__memo {
-  max-width: 867px;
-  min-height: 16px;
-  margin-top: 10px;
-  font-family: Inter;
-  font-style: normal;
+  position: absolute;
+  bottom: -26px;
+
   font-size: 12px;
   line-height: 16px;
   color: #666;
@@ -153,16 +152,18 @@ export default {
   border-top: 1px solid black;
   border-right: 1px solid black;
 }
+
 .arrow__left {
   transform: rotate(-135deg);
   margin-left: 10px;
 }
+
 .arrow__right {
   transform: rotate(45deg);
   margin-right: 10px;
 }
 
-.arrow_active {
+.arrow_disabled {
   border-color: #bfbfbf;
 }
 
@@ -186,12 +187,11 @@ export default {
     line-height: 20px;
   }
 
-  .arrow__wrapper-one {
+  .arrow__wrapper {
     margin-top: 360px;
   }
 
-  .arrow__wrapper-two {
-    margin-top: 360px;
+  .arrow__wrapper_right {
     margin-left: 40px;
   }
 
@@ -202,15 +202,8 @@ export default {
   .video__block {
     height: 400px;
   }
-
-  .video__play {
-    margin: 162px 0 0 348px;
-  }
-
-  .video__memo {
-    max-width: 773px;
-  }
 }
+
 @media screen and (max-width: 1024px) {
   .video {
     min-height: 340px;
@@ -231,12 +224,11 @@ export default {
     line-height: 16px;
   }
 
-  .arrow__wrapper-one {
+  .arrow__wrapper {
     margin-top: 274px;
   }
 
-  .arrow__wrapper-two {
-    margin-top: 274px;
+  .arrow__wrapper_right {
     margin-left: 40px;
   }
 
@@ -248,19 +240,13 @@ export default {
   .video__block {
     height: 314px;
   }
-
-  .video__play {
-    margin: 119px 0 0 265px;
-  }
-
-  .video__memo {
-    max-width: 606px;
-  }
 }
+
 @media screen and (max-width: 768px) {
   .video {
     min-height: 526px;
     flex-direction: column;
+    position: relative;
   }
 
   .video__title {
@@ -280,14 +266,16 @@ export default {
     line-height: 16px;
   }
 
-  .arrow__wrapper-one {
+  .arrow__wrapper {
     margin-top: 340px;
-    margin-left: -54px;
   }
 
-  .arrow__wrapper-two {
-    margin-top: 340px;
-    margin-left: 594px;
+  .arrow__wrapper_left {
+    left: 0;
+  }
+
+  .arrow__wrapper_right {
+    right: 0;
   }
 
   .video__container {
@@ -298,30 +286,8 @@ export default {
   .video__block {
     height: 300px;
   }
-
-  .video__play {
-    width: 76px;
-    height: 76px;
-    margin: 110px 0 0 250px;
-  }
-
-  .video__circle {
-    width: 76px;
-    height: 76px;
-  }
-
-  .video__triangle {
-    margin-top: 20px;
-    margin-left: 30px;
-    border-top: 17.5px solid transparent;
-    border-left: 25px solid #fff;
-    border-bottom: 17.5px solid transparent;
-  }
-
-  .video__memo {
-    max-width: 580px;
-  }
 }
+
 @media screen and (max-width: 320px) {
   .video {
     min-height: 312px;
@@ -345,45 +311,18 @@ export default {
     line-height: 16px;
   }
 
-  .arrow__wrapper-one {
+  .arrow__wrapper {
     margin-top: 220px;
-    margin-left: 0px;
-    background: none;
-  }
-
-  .arrow__wrapper-two {
-    margin-top: 220px;
-    margin-left: 250px;
     background: none;
   }
 
   .video__container {
     width: 290px;
-    margin: 0 auto 0;
+    margin: 0 auto;
   }
 
   .video__block {
     height: 150px;
-  }
-
-  .video__play {
-    width: 38px;
-    height: 38px;
-    margin: 60px 0 0 130px;
-  }
-
-  .video__circle {
-    width: 38px;
-    height: 38px;
-  }
-
-  .video__triangle {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 12.5px;
-    border-top: 10px solid transparent;
-    border-left: 17.5px solid #fff;
-    border-bottom: 10px solid transparent;
   }
 
   .video__memo {
