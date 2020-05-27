@@ -1,5 +1,5 @@
 <template>
-  <Container :className="'container_type_margin'">
+  <Container class="container_statistics" :className="'container_type_margin'">
     <section class="statistics">
       <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
       <div class="statistics__cards">
@@ -47,8 +47,8 @@ export default {
           },
           ui: {
             type: 'one',
-            widthOne: 33,
-            widthTwo: 77,
+            widthOne: 33.07,
+            widthTwo: 66.93,
           },
         },
         {
@@ -60,8 +60,8 @@ export default {
           },
           ui: {
             type: 'one',
-            widthOne: 2.7,
-            widthTwo: 97.3,
+            widthOne: 2.69,
+            widthTwo: 97.31,
           },
         },
         {
@@ -88,7 +88,7 @@ export default {
           },
           ui: {
             type: 'two',
-            widthOne: 54.16,
+            widthOne: 54.61,
             widthTwo: 73,
           },
         },
@@ -99,11 +99,6 @@ export default {
 </script>
 
 <style scoped>
-.statistics {
-  max-width: 1320px;
-  margin: 0 auto;
-}
-
 .statistics__title {
   font-weight: 600;
   font-size: 32px;
@@ -114,10 +109,8 @@ export default {
 
 .statistics__cards {
   margin: 70px 0 0;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /*grid-template-rows: fit-content();*/
   grid-column-gap: 40px;
 }
 
@@ -138,6 +131,7 @@ export default {
   font-size: 12px;
   line-height: 16px;
   margin: 0;
+  color: #000;
 }
 
 .statistics__first {
@@ -175,5 +169,100 @@ export default {
   text-align: right;
   color: #666666;
   margin: 20px 0 0;
+}
+
+@media screen and (max-width: 1280px) {
+  .statistics__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .statistics__cards {
+    margin: 60px 0 0;
+  }
+
+  .statistics__card {
+    height: 265px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .statistics__title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .statistics__cards {
+    margin: 46px 0 0;
+    grid-column-gap: 30px;
+  }
+
+  .statistics__card {
+    height: 208px;
+    padding: 10px;
+  }
+
+  .statistics__card-title {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .statistics__first {
+    height: 28px;
+  }
+
+  .statistics__numbers {
+    font-size: 26px;
+    line-height: 30px;
+    margin: 10px 0 0;
+  }
+
+  .statistics__from {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container_statistics {
+    padding: 0;
+  }
+  .statistics {
+    margin-left: 40px;
+  }
+  .statistics__title {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin: 0 auto 0;
+  }
+
+  .statistics__cards {
+    overflow: scroll;
+    margin: 60px 0 0;
+    grid-column-gap: 20px;
+  }
+
+  .statistics__card {
+    width: 216px;
+    height: 216px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .statistics {
+    margin-left: 15px;
+  }
+  .statistics__title {
+    width: 290px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 21px;
+    margin: 0;
+  }
+
+  .statistics__cards {
+    overflow: scroll;
+    overflow-y: hidden;
+    margin: 40px 0 0;
+    grid-column-gap: 10px;
+  }
 }
 </style>
