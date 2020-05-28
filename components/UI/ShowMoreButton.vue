@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--    TODO: button more articles. Responsible - Oleg-->
-    <a href="../stories/" class="stories__link"
+    <a href="/stories/" class="stories__link"
       ><button class="sories__more">Больше статей</button></a
     >
   </div>
@@ -9,13 +9,12 @@
 
 <script>
 export default {
-  name: 'ShowMore.vue',
+  name: 'ShowMore',
 };
 </script>
 
 <style scoped>
 .sories__more {
-  margin-top: 70px;
   width: 100%;
   height: 82px;
   background: #fbfbfb;

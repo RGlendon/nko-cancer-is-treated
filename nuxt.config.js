@@ -26,11 +26,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/static/vendor/common.css'],
+  css: ['@/static/vendor/common.css', '@/static/vendor/normalize.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/route.js' }, { src: '~/plugins/swiper.js' }],
   /*
    ** Nuxt.js dev-modules
    */

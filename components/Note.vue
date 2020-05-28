@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <div class="note">
       <h3 class="note__text">
         <slot></slot>
@@ -21,7 +21,7 @@ export default {
 <style scoped>
 .note {
   min-height: 86px;
-  background-color: #613a93;
+  background-color: var(--color-purple);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@ export default {
 .note__text {
   margin: 20px 0;
   max-width: 750px;
-  color: #fff;
+  color: var(--color-lightgray2);
   font-style: normal;
   font-weight: 300;
   font-size: 30px;

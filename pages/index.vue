@@ -1,28 +1,13 @@
 <template>
   <div class="general">
-    <!--    TODO: greeting - Responsible - Alexander-->
-    <Greeting class="greeting" />
-    <!--    TODO: block with video - Responsible - Pavel-->
-    <Video class="video" />
-    <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <Note class="note">{{ note[0].upper }}</Note>
-    <!--    TODO: block Stories with ShowMoreButton - Responsible - Oleg-->
+    <Greeting />
+    <Video />
+    <Note>{{ note[0].upper }}</Note>
     <Stories />
-    <!--    TODO: horizontal inscription - Responsible - Alexander-->
-    <Note class="note">{{ note[0].bottom }}</Note>
-    <!--    TODO: block Instagram - Responsible - Dmitry-->
-    <div class="inst">
-      <Inst />
-    </div>
-    <!--    TODO: block TellUsStory with Button - Responsible - Pavel-->
-    <div class="tellStory">
-      <TellUsStory />
-    </div>
-    <!--    TODO: block Statistics - Responsible - Mikhail-->
-    <div class="statistics-wrapper">
-      <Statistics />
-    </div>
-    <!--    TODO: block #РакЛечится - Responsible - Oleg-->
+    <Note>{{ note[0].bottom }}</Note>
+    <Inst />
+    <TellUsStory />
+    <Statistics />
     <Raklechitsa />
   </div>
 </template>
@@ -36,7 +21,6 @@ import TellUsStory from '@/components/TellUsStory.vue';
 import Raklechitsa from '@/components/Raklechitsa.vue';
 import Inst from '@/components/Inst.vue';
 import Statistics from '../components/Statistics';
-
 export default {
   components: {
     Statistics,
@@ -61,36 +45,4 @@ export default {
 };
 </script>
 
-<style>
-.general {
-  margin: 0 auto;
-}
-
-.greeting {
-  margin: 0;
-}
-
-.inst {
-  margin: 100px auto;
-}
-
-.video {
-  margin: 100px auto;
-}
-
-.tellStory {
-  margin: 0 auto;
-}
-
-.note {
-  margin: 74px auto 0;
-}
-
-.inscriptionBottom {
-  margin: 0 auto;
-}
-
-.statistics-wrapper {
-  margin: 100px auto;
-}
-</style>
+<style></style>

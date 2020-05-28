@@ -1,20 +1,47 @@
 <template>
-  <header class="header">
-    <p class="header__title">
-      Проект Благотворительного Фонда Константина Хабенского
-    </p>
-    <nav class="header__menu">
-      <nuxt-link to="/" class="header__menu-link">Главная</nuxt-link>
-      <nuxt-link to="/stories" class="header__menu-link">Истории</nuxt-link>
-      <nuxt-link to="/tellus" class="header__menu-link"
-        >Рассказать историю</nuxt-link
-      >
-    </nav>
-  </header>
+  <Container>
+    <header class="header">
+      <p class="header__title">
+        Проект Благотворительного Фонда Константина Хабенского
+      </p>
+      <nav class="header__menu">
+        <Menu :menu="menu" isUnderlined="true" />
+      </nav>
+      <MobileIcon class="header__mobile-icon" />
+    </header>
+  </Container>
 </template>
 
 <script>
-export default {};
+import Menu from './Menu';
+import Container from './Container';
+import MobileIcon from './UI/MobileIcon';
+
+export default {
+  components: { Container, Menu, MobileIcon },
+  data() {
+    return {
+      menu: [
+        {
+          path: '/',
+          title: 'Главная',
+          id: 'index',
+          isUnderlined: true,
+        },
+        {
+          path: '/stories',
+          title: 'Истории',
+          id: 'stories',
+          isUnderlined: true,
+        },
+        {
+          title: 'Рассказать историю',
+          id: 'tellstory',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -22,9 +49,8 @@ export default {};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1320px;
-  height: 5.277vw;
-  max-height: 76px;
+  max-width: 100%;
+  height: 76px;
   margin: 0 auto;
 }
 
@@ -32,19 +58,47 @@ export default {};
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  width: 25.75%;
+  width: 18em;
 }
 
-.header__menu-link {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
-  text-decoration: none;
-  margin-left: 40px;
-  color: black;
+.header__menu {
 }
 
-.nuxt-link-exact-active {
-  text-decoration: underline;
+.header__mobile-icon {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .header {
+    height: 72px;
+  }
+
+  .header__title {
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .header__menu {
+    display: none;
+  }
+
+  .header__mobile-icon {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    height: 72px;
+  }
+
+  .header__title {
+    font-size: 12px;
+    line-height: 14px;
+  }
 }
 </style>
