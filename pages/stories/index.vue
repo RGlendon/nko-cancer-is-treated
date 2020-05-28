@@ -12,15 +12,11 @@
     </form>
     <div class="stories__container">
       <ul class="stories__list">
-        <li
-          class="stories__item"
-          v-for="story in stories.slice(0, 16)"
-          :key="story.id"
-        >
+        <li class="stories__item" v-for="story in itemsToLoop" :key="story.id">
           <Story
             class="story"
-            :img="story.img"
-            :text="story.text"
+            :ImageUrl="isSmallImageSet(story)"
+            :title="story.title"
             :author="story.author"
             @cardClick="goToDetail(story.id)"
           />
@@ -44,10 +40,31 @@ export default {
     stories() {
       return this.$store.getters['stories/getStories'];
     },
+    itemsToLoop() {
+      if (process.browser) {
+        if (window.innerWidth <= 768 && window.innerWidth > 475) {
+          return this.stories.filter((item, index) => index < 12);
+        } else if (window.innerWidth <= 475) {
+          return this.stories.filter((item, index) => index < 9);
+        } else {
+          return this.stories.filter((item, index) => index < 16);
+        }
+      }
+    },
+  },
+  beforeMount() {
+    this.$store.dispatch('stories/fetchStories');
   },
   methods: {
     goToDetail(id) {
       this.$router.push(`/stories/${id}`);
+    },
+    isSmallImageSet: story => {
+      const imageFormats = story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('small')) {
+        return imageFormats.small.url;
+      }
+      return story.ImageUrl[0].url;
     },
   },
 };
@@ -105,7 +122,6 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0;
-    max-height: 1535px;
     overflow: hidden;
   }
 
@@ -128,7 +144,6 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     padding: 0;
-    max-height: 3955px;
   }
 
   .stories__title {

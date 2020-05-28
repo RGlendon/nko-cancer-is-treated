@@ -33,6 +33,9 @@ export default {
     Raklechitsa,
     Inst,
   },
+  async fetch({ store }) {
+    await store.dispatch('stories/fetchStories');
+  },
   data() {
     return {
       inscription: [

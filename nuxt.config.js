@@ -51,6 +51,9 @@ export default {
   /*
    ** Build configuration
    */
+  env: {
+    BASE_URL: 'https://strapi.kruzhok.io',
+  },
   build: {
     /*
      ** You can extend webpack config here

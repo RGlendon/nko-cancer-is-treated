@@ -2,9 +2,10 @@
   <div class="story" @click="$emit('cardClick')">
     <!--    <a :href="id" class="story__link">-->
     <div class="story__wrap">
-      <img :src="img" class="story__background" />
+      <img :src="`${baseurl}${ImageUrl}`" class="story__background" />
+
       <h3 class="story__title">{{ author }}</h3>
-      <p class="story__subtitle">{{ text }}</p>
+      <p class="story__subtitle">{{ title }}</p>
     </div>
     <!--    </a>-->
   </div>
@@ -12,7 +13,12 @@
 
 <script>
 export default {
-  props: ['img', 'author', 'text', 'src', 'id'],
+  props: ['ImageUrl', 'author', 'title', 'src', 'id'],
+  data() {
+    return {
+      baseurl: process.env.BASE_URL,
+    };
+  },
 };
 </script>
 
@@ -31,6 +37,7 @@ export default {
   background: #ededed;
   width: 300px;
   height: 300px;
+  object-fit: cover;
 }
 
 .story__title {

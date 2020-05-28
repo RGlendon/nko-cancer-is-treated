@@ -1,54 +1,27 @@
 <template>
   <Container>
     <div class="story__head">
-      <img src="#" alt="" class="story__img" />
+      <img
+        :src="`${baseurl}${isLargeImageSet(story)}`"
+        alt=""
+        class="story__img"
+      />
       <div class="story__about-container">
         <hr class="story__line" />
         <div class="story__about">
           <h2 class="story__title">
-            Александр Тарханов: «Я не могу победить свою пунктуальность в
-            отличии от рака»
+            {{ story.author }}:&laquo;{{ story.title }}&raquo;
           </h2>
           <div class="story__details">
             <a href="" class="story__share">Поделитесь ↗</a>
-            <p class="story__date">20 апреля 2018</p>
+            <p class="story__date">{{ storyDate }}</p>
           </div>
         </div>
         <hr class="story__line" />
       </div>
     </div>
     <div class="story__main">
-      <p class="story__text">
-        Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал в
-        ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными.
-        <br /><br />
-        У меня дома до сих пор стоят часы в каждой комнате, хотя они и не нужны
-        особо — я сам чувствую, опаздываю куда-то или нет, отстаю от нужного
-        графика или опережаю. Вот такие встроенные внутренние часы! Будильник
-        мне тоже не нужен — я всегда встаю раньше. Одеваюсь тоже быстро, как в
-        армии, за 45 секунд. <br /><br />
-        «В футболе если команда опоздала на 15 минут, ей засчитывается
-        поражение». <br /><br />
-        Опаздывать я тоже не люблю, на все встречи прихожу заранее. Если знаю,
-        что могу попасть по дороге в пробку, то не еду на машине. В аэропорт
-        приезжаю задолго до начала регистрации. Лучше подожду и кофе попью, чем
-        опоздаю! <br /><br />
-        Когда мне было 16 лет, мне в школе геометрию нужно было пересдавать. Я
-        билеты выучил, знал абсолютно все. Пришел в нужное время, а учительница
-        — нет. Ну, я какое-то время подождал ее и ушел. Потом она спрашивала:
-        «Почему не дождался?». Я ответил: «В футболе если команда опоздала на 15
-        минут, ей засчитывается поражение». Экзамен мне все-таки поставили!
-        Сейчас если кто-то из футболистов моей команды опаздывает — начинаю
-        злиться, могу и прикрикнуть потом. А если кто-то опоздал на тренировку
-        перед игрой — все, подготовка насмарку. Я сразу начинаю думать тогда:
-        «Значит, точно проиграем». Такая болезненная пунктуальность уже не
-        лечится. В отличие от рака. <br /><br />
-        «Сейчас если кто-то из футболистов моей команды опаздывает — начинаю
-        злиться, могу и прикрикнуть потом. А если кто-то опоздал на тренировку
-        перед игрой — все, подготовка насмарку. Я сразу начинаю думать тогда:
-        «Значит, точно проиграем». Такая болезненная пунктуальность уже не
-        лечится».
-      </p>
+      <p class="story__text" v-html="story.text"></p>
       <hr class="story__line" />
       <a href="" class="story__share"
         >Поделитесь этой статьей в своих социальных сетях ↗</a
@@ -57,16 +30,12 @@
     </div>
     <div class="stories__container">
       <ul class="stories__list">
-        <li
-          class="stories__item"
-          v-for="story in stories.slice(0, 4)"
-          :key="story.id"
-        >
+        <li class="stories__item" v-for="story in itemsToLoop" :key="story.id">
           <Story
-            :img="story.img"
-            :text="story.text"
+            :ImageUrl="isSmallImageSet(story)"
+            :title="story.title"
             :author="story.author"
-            :id="`/stories/${story.id}`"
+            @cardClick="goToDetail(story.id)"
           />
         </li>
       </ul>
@@ -86,50 +55,77 @@ export default {
     Story,
   },
 
+  data() {
+    return {
+      baseurl: process.env.BASE_URL,
+    };
+  },
   computed: {
     stories() {
       return this.$store.getters['stories/getStories'];
     },
-  },
-  // data() {
-  //   return {
-  //     posts: [
-  //       { id: 1, title: 'My journey with Vue' },
-  //       { id: 2, title: 'Blogging with Vue' },
-  //       { id: 3, title: 'Why Vue is so fun' },
-  //     ],
 
-  //     stories: [
-  //       {
-  //         id: '1',
-  //         author: 'Владимир Тен',
-  //         text:
-  //           'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-  //         img:
-  //           'https://i.pinimg.com/474x/8e/8d/d0/8e8dd0868c61806e1c24bc8dd3ec0d91.jpg',
-  //       },
-  //       {
-  //         id: '2',
-  //         author: 'Владимир Познер',
-  //         text: 'Я боюсь акул — и, в отличии от рака, это не лечится.',
-  //         img: 'https://avatarko.ru/img/kartinka/17/anonim_16595.jpg',
-  //       },
-  //       {
-  //         id: '3',
-  //         author: 'Александр Тарханов',
-  //         text: 'Я не могу победить свою пунктуальность в отличии от рака.',
-  //         img: 'https://avatarko.ru/img/kartinka/22/film_elf_Tauriel_21381.jpg',
-  //       },
-  //       {
-  //         id: '4',
-  //         author: 'Владимир Тен',
-  //         text:
-  //           'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-  //         img: 'https://avatarko.ru/img/kartinka/1/Spiderman.jpg',
-  //       },
-  //     ],
-  //   };
-  // },
+    story() {
+      return this.$store.getters['stories/getCurrentsStory'];
+    },
+    itemsToLoop() {
+      if (process.browser) {
+        if (window.innerWidth <= 768 && window.innerWidth > 475) {
+          return this.stories.filter((item, index) => index < 3);
+        } else if (window.innerWidth <= 475) {
+          return this.stories.filter((item, index) => index < 2);
+        } else {
+          return this.stories.filter((item, index) => index < 4);
+        }
+      }
+    },
+    storyDate() {
+      const month = [
+        'Января',
+        'Февраля',
+        'Марта',
+        'Апреля',
+        'Мая',
+        'Июня',
+        'Июля',
+        'Августа',
+        'Сентября',
+        'Октября',
+        'Ноября',
+        'Декабря',
+      ];
+
+      const date = new Date(this.story.date);
+      const storyDay = date.getDate();
+      const storyMonth = month[date.getMonth()];
+      const storyYear = date.getFullYear();
+      const storyDate = `${storyDay} ${storyMonth} ${storyYear}`;
+      return storyDate;
+    },
+  },
+  methods: {
+    goToDetail(id) {
+      this.$router.push(`/stories/${id}`);
+    },
+    isLargeImageSet() {
+      const imageFormats = this.story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('large')) {
+        return imageFormats.large.url;
+      }
+      return this.story.ImageUrl[0].url;
+    },
+    isSmallImageSet: story => {
+      const imageFormats = story.ImageUrl[0].formats;
+      if (imageFormats.hasOwnProperty('small')) {
+        return imageFormats.small.url;
+      }
+      return story.ImageUrl[0].url;
+    },
+  },
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStories');
+    await store.dispatch('stories/fetchStoriesWithId', { id: route.params.id });
+  },
 };
 </script>
 
@@ -144,6 +140,7 @@ export default {
   width: 580px;
   height: 580px;
   background: #ededed;
+  object-fit: cover;
 }
 
 .story__about {
@@ -210,6 +207,15 @@ export default {
   font-size: 22px;
   line-height: 30px;
   margin-bottom: 70px;
+}
+
+.story__text >>> p {
+  margin: 0 0 36px;
+}
+
+.story__text >>> blockquote {
+  font-weight: 600;
+  margin: 0;
 }
 
 .stories__list {
@@ -409,8 +415,8 @@ export default {
     background: #ededed;
     /* display: none; */
     position: absolute;
-    left: 22%;
-    top: 21%;
+    left: 23%;
+    top: 15%;
   }
 
   .story__about {
@@ -487,8 +493,6 @@ export default {
     flex-wrap: wrap;
     padding: 0;
     margin-top: 90px;
-    height: 358px;
-    overflow: hidden;
   }
 }
 
@@ -504,8 +508,8 @@ export default {
     background: #ededed;
     /* display: none; */
     position: absolute;
-    left: 4%;
-    top: 22%;
+    left: 5%;
+    top: 13%;
   }
 
   .story__about {
@@ -582,8 +586,6 @@ export default {
     flex-wrap: wrap;
     padding: 0;
     margin-top: 90px;
-    height: 1309px;
-    overflow: hidden;
   }
 }
 </style>
