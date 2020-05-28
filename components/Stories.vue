@@ -16,7 +16,6 @@
     <ShowMore class="showmore" />
   </Container>
 </template>
-
 <script>
 import Container from '@/components/Container.vue';
 import ShowMore from '@/components/UI/ShowMoreButton.vue';
