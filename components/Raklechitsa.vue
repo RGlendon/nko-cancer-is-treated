@@ -295,6 +295,7 @@ export default {
   }
 
   .raklechitsa__brief {
+    height: 69px;
     display: block;
     margin-top: 50px;
   }

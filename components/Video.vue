@@ -133,9 +133,7 @@ export default {
 }
 
 .video__memo {
-  position: absolute;
-  bottom: -26px;
-
+  margin-top: 10px;
   font-size: 12px;
   line-height: 16px;
   color: #666;
@@ -266,6 +264,9 @@ export default {
     line-height: 16px;
   }
 
+  .video__memo {
+    margin-top: 20px;
+  }
   .arrow__wrapper {
     margin-top: 340px;
   }
@@ -300,7 +301,7 @@ export default {
     margin: 0 auto 16px;
     font-size: 18px;
     line-height: 21px;
-    text-align: center;
+    text-align: left;
   }
 
   .video__text {
