@@ -1,32 +1,37 @@
 <template>
   <div>
-    <div class="quiz" v-if="currentQuestion < count">
-      <h3 class="quiz__title">{{ title }}</h3>
-      <p class="quize__question">{{ question }}</p>
+    <div class="quiz" v-if="currentQuestion < questions.length - 1">
+      <h3 class="quiz__title">{{ questions[currentQuestion].title }}</h3>
+      <p class="quize__question">{{ questions[currentQuestion].question }}</p>
+
       <Input
         placeholder="Напишите тут"
         :bottomBordered="true"
         v-model="content"
       />
+
       <div class="quiz__buttons">
         <button
-          @click="onPrev"
+          @click="prevQuestion"
           class="quiz__prev"
           :disabled="currentQuestion === 0"
         >
           Назад
         </button>
         <Button
-          v-if="currentQuestion < count - 1"
-          @btnClick="onNext(content, currentQuestion)"
-          >Далее</Button
-        >
+          v-if="currentQuestion < questions.length - 1 - 1"
+          @btnClick="nextQuestion(content, currentQuestion)"
+          >Далее
+        </Button>
         <Button v-else @btnClick="submitPopupForm">Отправить</Button>
       </div>
     </div>
+
     <div class="quiz" v-else>
-      <h3 class="quiz__title quiz__title_center">{{ title }}</h3>
-      <Button class="quiz_button" @btnClick="closePopup">Закрыть</Button>
+      <h3 class="quiz__title quiz__title_center">
+        {{ questions[currentQuestion].title }}
+      </h3>
+      <Button class="quiz_button" @btnClick="togglePopup">Закрыть</Button>
     </div>
   </div>
 </template>
@@ -36,33 +41,45 @@ import Input from '~/components/UI/Input';
 import Button from '~/components/UI/Button';
 
 export default {
-  props: {
-    currentQuestion: Number,
-    count: Number,
-    title: {
-      required: true,
-      default: 'Шаг 0 из 12',
-      type: String,
-    },
-    question: {
-      type: String,
-    },
-    answers: Array,
-    onNext: Function,
-    onPrev: Function,
-    closePopup: Function,
-    submitForm: Function,
-  },
   components: {
     Input,
     Button,
   },
-  methods: {
-    submitPopupForm() {
-      this.onNext();
-      this.submitForm(this.answers);
+
+  computed: {
+    currentQuestion() {
+      return this.$store.getters['quiz/getCurrentQuestion'];
+    },
+    questions() {
+      return this.$store.getters['quiz/getQuestions'];
+    },
+    answers() {
+      return this.$store.getters['quiz/getAnswers'];
     },
   },
+
+  methods: {
+    submitPopupForm() {
+      this.nextQuestion();
+      this.submitForm(this.answers);
+    },
+    prevQuestion() {
+      return this.$store.commit('quiz/prevQuestion');
+    },
+    nextQuestion(answer, currentQuestion) {
+      return (
+        this.$store.commit('quiz/setAnswer', { answer, currentQuestion }),
+        this.$store.commit('quiz/nextQuestion')
+      );
+    },
+    submitForm(answers) {
+      console.log(`отправлена форма с данными ${answers}`);
+    },
+    togglePopup() {
+      return this.$store.commit('popup/togglePopup');
+    },
+  },
+
   data() {
     return {
       content: '',

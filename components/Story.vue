@@ -1,12 +1,12 @@
 <template>
-  <div class="story">
-    <a :href="id" class="story__link">
-      <div class="story__wrap">
-        <img :src="img" class="story__background" />
-        <h3 class="story__title">{{ author }}</h3>
-        <p class="story__subtitle">{{ text }}</p>
-      </div>
-    </a>
+  <div class="story" @click="$emit('cardClick')">
+    <!--    <a :href="id" class="story__link">-->
+    <div class="story__wrap">
+      <img :src="img" class="story__background" />
+      <h3 class="story__title">{{ author }}</h3>
+      <p class="story__subtitle">{{ text }}</p>
+    </div>
+    <!--    </a>-->
   </div>
 </template>
 
@@ -17,13 +17,14 @@ export default {
 </script>
 
 <style scoped>
-.story__link {
-  text-decoration: none;
-  color: black;
-}
+/*.story__link {*/
+/*  text-decoration: none;*/
+/*  color: black;*/
+/*}*/
 
 .story {
   margin-top: 70px;
+  cursor: pointer;
 }
 
 .story__background {

@@ -5,17 +5,7 @@
     <nuxt />
     <Overlay v-if="popupShown" @overlayClick="togglePopup" />
     <Popup v-if="popupShown">
-      <Quiz
-        :currentQuestion="currentQuestion"
-        :count="questions.length - 1"
-        :title="questions[currentQuestion].title"
-        :question="questions[currentQuestion].question"
-        :onPrev="prevQuestion"
-        :onNext="nextQuestion"
-        :closePopup="togglePopup"
-        :answers="answers"
-        :submitForm="submitForm"
-      />
+      <Quiz />
     </Popup>
     <Footer />
   </div>
@@ -43,15 +33,6 @@ export default {
     popupShown() {
       return this.$store.getters['popup/getPopupShown'];
     },
-    currentQuestion() {
-      return this.$store.getters['quiz/getCurrentQuestion'];
-    },
-    questions() {
-      return this.$store.getters['quiz/getQuestions'];
-    },
-    answers() {
-      return this.$store.getters['quiz/getAnswers'];
-    },
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
@@ -60,18 +41,6 @@ export default {
   methods: {
     togglePopup() {
       return this.$store.commit('popup/togglePopup');
-    },
-    prevQuestion() {
-      return this.$store.commit('quiz/prevQuestion');
-    },
-    nextQuestion(answer, currentQuestion) {
-      return (
-        this.$store.commit('quiz/setAnswer', { answer, currentQuestion }),
-        this.$store.commit('quiz/nextQuestion')
-      );
-    },
-    submitForm(answers) {
-      console.log(`отправлена форма с данными ${answers}`);
     },
   },
 };

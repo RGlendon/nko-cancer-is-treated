@@ -2,7 +2,7 @@
   <Container class="container_greeting">
     <div class="greeting">
       <h1 class="greeting__title">#РАКЛЕЧИТСЯ</h1>
-      <button class="greeting__arrow"></button>
+      <button class="greeting__arrow" @click="scrollDown"></button>
     </div>
   </Container>
 </template>
@@ -13,6 +13,13 @@ import Container from '@/components/Container.vue';
 export default {
   components: {
     Container,
+  },
+
+  methods: {
+    scrollDown() {
+      let el = document.getElementById('video');
+      el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    },
   },
 };
 </script>
