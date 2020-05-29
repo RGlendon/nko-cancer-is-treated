@@ -31,17 +31,16 @@ export default {
 <style scoped>
 .button {
   width: fit-content;
+  min-height: 52px;
   white-space: nowrap;
   padding: 16px 80px;
   border: 0;
   cursor: pointer;
   outline: none;
-
   color: var(--color-lightgray2);
   font-family: Inter, sans-serif;
   font-weight: 500;
   font-size: 16px;
-
   background-color: var(--color-purple);
   transition: all 0.3s linear;
 }
@@ -63,6 +62,10 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
+  .button {
+    min-height: 48px;
+  }
+
   .button_small {
     padding: 15px 45px;
   }
@@ -70,6 +73,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .button {
+    min-height: 46px;
     font-size: 15px;
   }
 
@@ -78,12 +82,10 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
-}
-
 @media screen and (max-width: 320px) {
   .button {
-    width: 290px;
+    min-height: 40px;
+    width: 206px;
     font-size: 13px;
   }
 
