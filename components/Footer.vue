@@ -22,15 +22,17 @@
               >Youtube</a
             >
           </p>
-          <p class="footer__social-link-text">Поделитесь ↗</p>
+          <button class="footer__button-socials" @click="openSocials">
+            Поделитесь ↗
+          </button>
         </div>
       </div>
       <div class="footer__bottom-block">
-        <p class="footer__copyright">Рак Лечится {{ Year }}</p>
-        <p class="footer__copyright">
+        <p class="footer__naming-and-author">Рак Лечится {{ Year }}</p>
+        <p class="footer__naming-and-author">
           Сделано студентами
           <a
-            class="footer__copyright-link"
+            class="footer__author-link"
             href="https://praktikum.yandex.ru"
             target="_blank"
             >Яндекс Практикум</a
@@ -67,6 +69,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    openSocials() {
+      this.$store.commit('popup/openSocials');
+    },
   },
 };
 </script>
@@ -130,7 +137,7 @@ export default {
   align-items: flex-start;
 }
 
-.footer__copyright {
+.footer__naming-and-author {
   margin: 0;
   font-weight: normal;
   font-size: 16px;
@@ -138,9 +145,23 @@ export default {
   color: #898989;
 }
 
-.footer__copyright-link {
+.footer__author-link {
   text-decoration: none;
   color: #898989;
+}
+
+.footer__button-socials {
+  width: 120px;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 @media screen and (max-width: 1280px) {
@@ -161,7 +182,7 @@ export default {
     font-size: 16px;
   }
 
-  .footer__copyright {
+  .footer__naming-and-author {
     margin-top: 10px;
     font-size: 16px;
   }
@@ -234,7 +255,7 @@ export default {
     margin-top: 40px;
   }
 
-  .footer__copyright {
+  .footer__naming-and-author {
     margin-top: 10px;
     font-size: 13px;
   }
