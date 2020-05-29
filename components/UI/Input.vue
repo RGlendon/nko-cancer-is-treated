@@ -2,18 +2,18 @@
   <input
     :class="['input', className, { 'input_bottom-bordered': bottomBordered }]"
     :type="type"
+    v-model="content"
+    @input="handleInput"
+    ref="input"
     :placeholder="placeholder"
-    :name="name"
-    :required="required"
-    @input="$emit('input', $event.target.value)"
   />
 </template>
 
 <script>
 export default {
   props: {
-    name: String,
-    required: Boolean,
+    value: String,
+    autofocus: Boolean,
     bottomBordered: Boolean,
     placeholder: String,
     className: String,
@@ -24,6 +24,27 @@ export default {
         'text|number|email|password|search|url|tel'.split('|').indexOf(value) >
         -1,
     },
+  },
+  data() {
+    return {
+      content: this.value,
+    };
+  },
+  watch: {
+    value(newVal, oldVal) {
+      if (newVal !== this.content) {
+        this.content = newVal;
+      }
+      if (this.autofocus) this.$refs.input.focus();
+    },
+  },
+  methods: {
+    handleInput(e) {
+      this.$emit('input', this.content);
+    },
+  },
+  mounted() {
+    if (this.autofocus) this.$refs.input.focus();
   },
 };
 </script>

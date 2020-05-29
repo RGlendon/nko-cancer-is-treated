@@ -61,9 +61,6 @@ export default {
   width: 18em;
 }
 
-.header__menu {
-}
-
 .header__mobile-icon {
   display: none;
 }

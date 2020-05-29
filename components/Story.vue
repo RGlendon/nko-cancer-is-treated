@@ -17,11 +17,6 @@ export default {
 </script>
 
 <style scoped>
-/*.story__link {*/
-/*  text-decoration: none;*/
-/*  color: black;*/
-/*}*/
-
 .story {
   margin-top: 70px;
   cursor: pointer;

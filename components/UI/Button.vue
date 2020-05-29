@@ -54,6 +54,14 @@ export default {
   opacity: 0.9;
 }
 
+.button_disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.button.button_disabled:hover {
+  opacity: 0.3;
+}
+
 @media screen and (max-width: 1280px) {
   .button_small {
     padding: 15px 45px;
