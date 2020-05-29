@@ -1,6 +1,6 @@
 <template>
-  <div class="popup">
-    <div :class="['close', `close_theme_${theme}`]" @click="closePopup"></div>
+  <div :class="['popup', { popup___feedback: feedbackShown }]">
+    <div class="close" @click="closePopup"></div>
     <slot>Содержимое окна</slot>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 export default {
   props: {
-    theme: String,
+    feedbackShown: Boolean,
   },
   methods: {
     closePopup() {
@@ -25,7 +25,6 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 920px;
-  min-height: 600px;
   box-sizing: border-box;
   padding: 40px;
   background-color: var(--color-lightgray2);
@@ -46,7 +45,6 @@ export default {
 @media screen and (max-width: 1280px) {
   .popup {
     width: 800px;
-    min-height: 520px;
   }
   .close {
     top: 37.8px;
@@ -56,19 +54,21 @@ export default {
 
 @media screen and (max-width: 768px) {
   .popup {
-    min-height: 520px;
     width: 580px;
   }
 }
 @media screen and (max-width: 320px) {
   .popup {
-    min-height: 520px;
-    width: 290px;
+    width: 90.65%;
     padding: 15px;
   }
   .close {
     top: 19.7px;
     right: 16.9px;
+  }
+  .popup.popup___feedback {
+    top: 15px;
+    transform: translate(-50%, 0);
   }
 }
 </style>

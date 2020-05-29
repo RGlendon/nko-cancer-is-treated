@@ -94,15 +94,12 @@ export default {
     submitPopupForm() {
       this.submitForm(this.answers);
     },
-    // prevQuestion() {
-    //   return this.$store.commit('quiz/prevQuestion');
-    // },
 
     submitForm(answers) {
       console.log(`отправлена форма с данными ${answers}`);
     },
     togglePopup() {
-      return this.$store.commit('popup/togglePopup');
+      return this.$store.commit('popup/closePopup');
     },
   },
 
@@ -212,11 +209,16 @@ export default {
 }
 
 @media screen and (max-width: 400px) {
+  .feadback {
+    /*height: calc(100vh - 30px);*/
+    /*top: 15px;*/
+  }
   .feadback__central-block {
     display: flex;
     flex-direction: column;
   }
   .feadback__title {
+    width: 10.27em;
     font-size: 18px;
     line-height: 21px;
   }

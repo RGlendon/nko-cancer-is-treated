@@ -4,7 +4,7 @@
     <Header class="main-header" />
     <nuxt />
     <Overlay v-if="popupShown" @overlayClick="closePopup" />
-    <Popup v-if="popupShown">
+    <Popup v-if="popupShown" :feedbackShown="feedbackShown">
       <Quiz v-if="quizShown" />
       <Feadback v-if="feedbackShown" />
       <Socials v-if="socialsShown" />
@@ -89,6 +89,10 @@ html {
     /*display: flex;*/
     /*justify-content: flex-start;*/
     /*align-items: center;*/
+  }
+}
+@media screen and (max-width: 320px) {
+  .popup.popup__quiz {
   }
 }
 </style>
