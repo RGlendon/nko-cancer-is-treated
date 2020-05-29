@@ -7,7 +7,7 @@
         :class="['menu__link', { menu_link_underline: link.isUnderlined }]"
         >{{ link.title }}</nuxt-link
       >
-      <button v-else class="menu__button" @click="togglePopup">
+      <button v-else class="menu__button" @click="openPopupQuiz">
         {{ link.title }}
       </button>
     </li>
@@ -21,8 +21,8 @@ export default {
     className: String,
   },
   methods: {
-    togglePopup() {
-      this.$store.commit('popup/togglePopup');
+    openPopupQuiz() {
+      this.$store.commit('popup/openPopupQuiz');
     },
   },
 };

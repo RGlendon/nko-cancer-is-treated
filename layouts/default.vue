@@ -3,9 +3,10 @@
     <MobileMenu v-if="isMobileMenuOpened" class="main-mobile-menu" />
     <Header class="main-header" />
     <nuxt />
-    <Overlay v-if="popupShown" @overlayClick="togglePopup" />
+    <Overlay v-if="popupShown" @overlayClick="closePopup" />
     <Popup v-if="popupShown">
-      <Quiz />
+      <Quiz v-if="quizShown" />
+      <Feadback v-if="feedbackShown" />
     </Popup>
     <Footer />
   </div>
@@ -18,9 +19,11 @@ import Overlay from '../components/UI/Overlay';
 import Popup from '../components/Popup';
 import Quiz from '../components/Quiz';
 import MobileMenu from '../components/MobileMenu';
+import Feadback from '../components/Feadback';
 
 export default {
   components: {
+    Feadback,
     MobileMenu,
     Popup,
     Footer,
@@ -33,14 +36,20 @@ export default {
     popupShown() {
       return this.$store.getters['popup/getPopupShown'];
     },
+    feedbackShown() {
+      return this.$store.getters['popup/getFeedbackShown'];
+    },
+    quizShown() {
+      return this.$store.getters['popup/getQuizShown'];
+    },
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
   },
 
   methods: {
-    togglePopup() {
-      return this.$store.commit('popup/togglePopup');
+    closePopup() {
+      return this.$store.commit('popup/closePopup');
     },
   },
 };

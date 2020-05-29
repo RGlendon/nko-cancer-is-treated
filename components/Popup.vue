@@ -1,6 +1,6 @@
 <template>
   <div class="popup">
-    <div :class="['close', `close_theme_${theme}`]" @click="togglePopup"></div>
+    <div :class="['close', `close_theme_${theme}`]" @click="closePopup"></div>
     <slot>Содержимое окна</slot>
   </div>
 </template>
@@ -11,8 +11,8 @@ export default {
     theme: String,
   },
   methods: {
-    togglePopup() {
-      this.$store.commit('popup/togglePopup');
+    closePopup() {
+      this.$store.commit('popup/closePopup');
     },
   },
 };
