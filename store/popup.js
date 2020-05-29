@@ -3,6 +3,7 @@ export const state = () => ({
   popupShown: false,
   quizShown: false,
   feedbackShown: false,
+  socialsShown: false,
 });
 
 // change state from here
@@ -11,6 +12,7 @@ export const mutations = {
     state.popupShown = false;
     state.quizShown = false;
     state.feedbackShown = false;
+    state.socialsShown = false;
   },
   // togglePopup(state) {
   //   state.popupShown = !state.popupShown;
@@ -22,6 +24,10 @@ export const mutations = {
   openPopupFeedback(state) {
     state.popupShown = true;
     state.feedbackShown = true;
+  },
+  openSocials(state) {
+    state.popupShown = true;
+    state.socialsShown = true;
   },
 };
 
@@ -35,5 +41,8 @@ export const getters = {
   },
   getQuizShown(state) {
     return state.quizShown;
+  },
+  getSocialsShown(state) {
+    return state.socialsShown;
   },
 };

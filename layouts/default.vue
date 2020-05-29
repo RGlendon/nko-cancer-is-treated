@@ -7,6 +7,7 @@
     <Popup v-if="popupShown">
       <Quiz v-if="quizShown" />
       <Feadback v-if="feedbackShown" />
+      <Socials v-if="socialsShown" />
     </Popup>
     <Footer />
   </div>
@@ -20,9 +21,11 @@ import Popup from '../components/Popup';
 import Quiz from '../components/Quiz';
 import MobileMenu from '../components/MobileMenu';
 import Feadback from '../components/Feadback';
+import Socials from '../components/Socials';
 
 export default {
   components: {
+    Socials,
     Feadback,
     MobileMenu,
     Popup,
@@ -41,6 +44,9 @@ export default {
     },
     quizShown() {
       return this.$store.getters['popup/getQuizShown'];
+    },
+    socialsShown() {
+      return this.$store.getters['popup/getSocialsShown'];
     },
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];

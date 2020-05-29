@@ -22,7 +22,9 @@
               >Youtube</a
             >
           </p>
-          <button class="footer__button-socials" @click="togglePopup">Поделитесь ↗</button>
+          <button class="footer__button-socials" @click="openSocials">
+            Поделитесь ↗
+          </button>
         </div>
       </div>
       <div class="footer__bottom-block">
@@ -69,8 +71,8 @@ export default {
     };
   },
   methods: {
-    togglePopup() {
-      this.$store.commit('popup/togglePopup');
+    openSocials() {
+      this.$store.commit('popup/openSocials');
     },
   },
 };

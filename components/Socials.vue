@@ -3,22 +3,22 @@
     <h2 class="socials__title">Поделитесь</h2>
     <ul class="socials__icons">
       <li>
-        <img class="socials__icon" src="../static/Images/facebook.svg">
-      </li>
-       <li>
-        <img class="socials__icon" src="../static/Images/Twitter.svg">
+        <img class="socials__icon" src="../static/Images/facebook.svg" />
       </li>
       <li>
-        <img class="socials__icon" src="../static/Images/vkontakte.svg">
+        <img class="socials__icon" src="../static/Images/Twitter.svg" />
       </li>
       <li>
-        <img class="socials__icon" src="../static/Images/odnoklassniki.svg">
+        <img class="socials__icon" src="../static/Images/vkontakte.svg" />
       </li>
       <li>
-        <img class="socials__icon" src="../static/Images/inst.svg">
+        <img class="socials__icon" src="../static/Images/odnoklassniki.svg" />
       </li>
       <li>
-        <img class="socials__icon" src="../static/Images/youtube.png">
+        <img class="socials__icon" src="../static/Images/inst.svg" />
+      </li>
+      <li>
+        <img class="socials__icon" src="../static/Images/youtube.png" />
       </li>
     </ul>
   </div>
@@ -41,7 +41,6 @@ export default {
 </script>
 
 <style scoped>
-
 .socials__title {
   font-weight: 600;
   font-size: 32px;
@@ -51,11 +50,11 @@ export default {
 }
 
 .socials__icons {
-  margin: 110px auto;
+  margin: 110px auto 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-  list-style: none;
+  list-style-type: none;
 }
 
 .socials__icon {
@@ -69,9 +68,16 @@ export default {
   background-position: center;
 }
 
+@media screen and (max-width: 768px) {
+  .socials__icon {
+    margin-right: 25px;
+    width: 30px;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .socials__title {
-     font-size: 18px;
+    font-size: 18px;
   }
   .socials__icons {
     margin: 70px auto;
@@ -84,4 +90,3 @@ export default {
   }
 }
 </style>
-
