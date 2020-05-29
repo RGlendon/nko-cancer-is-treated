@@ -6,16 +6,16 @@
         Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей
         истории и разместить ее на сайте.
       </p>
-      <p class="feadback__question">
-        {{ questions[currentQuestion].question }}
-      </p>
 
-      <Input
-        class="feadback__input"
-        placeholder="Напишите тут"
-        :bottomBordered="true"
-        v-model="content"
-      />
+      <label class="feadback__question"
+        >Как вас зовут?
+        <Input
+          class="feadback__input"
+          placeholder="Напишите тут"
+          :bottomBordered="true"
+          v-model="content"
+        />
+      </label>
 
       <div class="feadback__central-block">
         <div class="feadback__central-block-container">
