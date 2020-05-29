@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 // state
 export const state = () => ({
@@ -54,17 +54,11 @@ export const getters = {
 
 export const actions = {
   // не работает!!! почему?)
-  fetchVideos(state) {
-    return axios
-      .get('https://strapi.kruzhok.io/videos')
-      .then(response => {
-        return state.commit('setState', {
-          name: 'videos',
-          value: response.data,
-        });
-      })
-      .catch(err => {
-        console.log('ошибка!!!');
-      });
-  },
+  // async fetchVideos({ commit }) {
+  //   const videos = await axios.get('https://strapi.kruzhok.io/videos');
+  //   commit('setState', {
+  //     name: 'videos',
+  //     value: videos,
+  //   });
+  // },
 };

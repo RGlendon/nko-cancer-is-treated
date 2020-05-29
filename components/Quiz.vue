@@ -37,9 +37,9 @@
         <Button v-else @btnClick="submitPopupForm">Отправить</Button>
         <p v-if="currentNumber === 11" class="quiz__policy">
           Нажимая на кнопку «отправить», вы даете согласие на
-          <nuxt-link :to="'/policy'" class="quiz__link"
-            >обработку персональных данных</nuxt-link
-          >
+          <span class="quiz__link" @click="readPolicy"
+            >обработку персональных данных
+          </span>
         </p>
       </div>
     </div>
@@ -101,6 +101,10 @@ export default {
       await this.submitForm(this.answers);
       // await
     },
+    readPolicy() {
+      this.$store.commit('popup/togglePopup');
+      this.$router.push(`/policy`);
+    },
     togglePopup() {
       this.$store.commit('quiz/resetQuiz');
       this.$store.commit('popup/togglePopup');
@@ -118,9 +122,13 @@ export default {
   margin-left: 30px;
   width: 27em;
 }
+
 .quiz__link {
-  color: #666666;
+  color: var(--color-gray3);
+  border-bottom: 1px solid var(--color-gray3);
+  cursor: pointer;
 }
+
 .quiz__title {
   font-weight: 600;
   font-size: 32px;
@@ -144,6 +152,7 @@ export default {
 .quiz__buttons {
   margin-top: 200px;
   display: flex;
+  align-items: center;
 }
 
 .quiz__prev {
