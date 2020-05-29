@@ -1,10 +1,10 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 // state
 export const state = () => ({
   currentVideo: 0,
-  // videos: [],
-  videos: [
+  // video: [],
+  video: [
     {
       id: 1,
       url: 'https://www.youtube.com/embed/coOppM34GtI',
@@ -45,7 +45,7 @@ export const getters = {
     return state.currentVideo;
   },
   getVideos(state) {
-    return state.videos;
+    return state.video;
   },
   // getCurrentVideo(state, getters) {
   //   return state.videos[getters.getNumber];
@@ -53,12 +53,11 @@ export const getters = {
 };
 
 export const actions = {
-  // не работает!!! почему?)
-  // async fetchVideos({ commit }) {
-  //   const videos = await axios.get('https://strapi.kruzhok.io/videos');
-  //   commit('setState', {
-  //     name: 'videos',
-  //     value: videos,
-  //   });
-  // },
+  async fetchVideo({ commit }) {
+    const video = await this.$axios.$get('https://strapi.kruzhok.io/videos');
+    await commit('setState', {
+      name: 'video',
+      value: video,
+    });
+  },
 };
