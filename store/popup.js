@@ -14,9 +14,9 @@ export const mutations = {
     state.feedbackShown = false;
     state.socialsShown = false;
   },
-  // togglePopup(state) {
-  //   state.popupShown = !state.popupShown;
-  // },
+  togglePopup(state) {
+    state.popupShown = false;
+  },
   openPopupQuiz(state) {
     state.popupShown = true;
     state.quizShown = true;

@@ -105,9 +105,9 @@ export default {
       this.$store.commit('popup/togglePopup');
       this.$router.push(`/policy`);
     },
-    togglePopup() {
+    closePopup() {
       this.$store.commit('quiz/resetQuiz');
-      this.$store.commit('popup/togglePopup');
+      this.$store.commit('popup/closePopup');
     },
   },
 };

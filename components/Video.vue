@@ -75,11 +75,11 @@ export default {
   },
 
   // этот fetch не работает почему-то =(
-  // fetch({ store }) {
-  //    store.dispatch('video/fetchVideo');
+  // async fetch({ store }) {
+  //   await store.dispatch('video/fetchVideo');
   // },
-  // beforeMount() {
-  //   this.$store.dispatch('video/fetchVideo');
+  // async beforeMount () {
+  //   await this.$store.dispatch('video/fetchVideo');
   // },
 };
 </script>

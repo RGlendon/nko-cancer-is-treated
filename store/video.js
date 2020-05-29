@@ -54,10 +54,18 @@ export const getters = {
 
 export const actions = {
   async fetchVideo({ commit }) {
-    const video = await this.$axios.$get('https://strapi.kruzhok.io/videos');
-    await commit('setState', {
+    const video = await this.$axios.$get(process.env.BASE_URL + 'videos');
+    commit('setState', {
       name: 'video',
       value: video,
     });
   },
+  // fetchVideo({ commit }) {
+  //   return this.$axios.$get(process.env.BASE_URL + '/videos')
+  //     .then((resp) => commit('setState', {
+  //       name: 'video',
+  //       value: resp,
+  //     }))
+  //     .catch((err) => console.log(err));
+  // },
 };
