@@ -19,25 +19,26 @@
           <a href="#" target="_blank" class="line">нашем YouTube канале</a>.
         </p>
       </div>
-
       <div
-        class="arrow__wrapper arrow__wrapper_left"
+        class="video__wrapper video__wrapper_left"
         @click="prevVideo"
         :disabled="currentNumber === 0"
       >
         <div
-          class="arrow arrow__left"
-          :class="[{ arrow_disabled: currentNumber === 0 }]"
+          class="video__arrow video__arrow__left"
+          :class="[{ video__arrow_disabled: currentNumber === 0 }]"
         ></div>
       </div>
       <div
-        class="arrow__wrapper arrow__wrapper_right"
+        class="video__wrapper video__wrapper_right"
         @click="nextVideo"
         :disabled="currentNumber === videos.length - 1"
       >
         <div
-          class="arrow arrow__right"
-          :class="[{ arrow_disabled: currentNumber === videos.length - 1 }]"
+          class="video__arrow video__arrow__right"
+          :class="[
+            { video__arrow_disabled: currentNumber === videos.length - 1 },
+          ]"
         ></div>
       </div>
     </div>
@@ -109,7 +110,7 @@ export default {
   color: #666;
 }
 
-.arrow__wrapper {
+.video__wrapper {
   position: absolute;
   margin-top: 410px;
   width: 40px;
@@ -121,7 +122,7 @@ export default {
   cursor: pointer;
 }
 
-.arrow__wrapper_right {
+.video__wrapper_right {
   margin-left: 40px;
 }
 
@@ -136,9 +137,7 @@ export default {
 }
 
 .video__memo {
-  position: absolute;
-  bottom: -26px;
-
+  margin-top: 10px;
   font-size: 12px;
   line-height: 16px;
   color: #666;
@@ -149,24 +148,24 @@ export default {
   color: #666;
 }
 
-.arrow {
+.video__arrow {
   width: 16px;
   height: 16px;
   border-top: 1px solid black;
   border-right: 1px solid black;
 }
 
-.arrow__left {
+.video__arrow__left {
   transform: rotate(-135deg);
   margin-left: 10px;
 }
 
-.arrow__right {
+.video__arrow__right {
   transform: rotate(45deg);
   margin-right: 10px;
 }
 
-.arrow_disabled {
+.video__arrow_disabled {
   border-color: #bfbfbf;
 }
 
@@ -190,11 +189,11 @@ export default {
     line-height: 20px;
   }
 
-  .arrow__wrapper {
+  .video__wrapper {
     margin-top: 360px;
   }
 
-  .arrow__wrapper_right {
+  .video__wrapper_right {
     margin-left: 40px;
   }
 
@@ -227,11 +226,11 @@ export default {
     line-height: 16px;
   }
 
-  .arrow__wrapper {
+  .video__wrapper {
     margin-top: 274px;
   }
 
-  .arrow__wrapper_right {
+  .video__wrapper_right {
     margin-left: 40px;
   }
 
@@ -269,15 +268,18 @@ export default {
     line-height: 16px;
   }
 
-  .arrow__wrapper {
+  .video__memo {
+    margin-top: 20px;
+  }
+  .video__wrapper {
     margin-top: 340px;
   }
 
-  .arrow__wrapper_left {
+  .video__wrapper_left {
     left: 0;
   }
 
-  .arrow__wrapper_right {
+  .video__wrapper_right {
     right: 0;
   }
 
@@ -303,7 +305,7 @@ export default {
     margin: 0 auto 16px;
     font-size: 18px;
     line-height: 21px;
-    text-align: center;
+    text-align: left;
   }
 
   .video__text {
@@ -314,7 +316,7 @@ export default {
     line-height: 16px;
   }
 
-  .arrow__wrapper {
+  .video__wrapper {
     margin-top: 220px;
     background: none;
   }

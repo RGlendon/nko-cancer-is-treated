@@ -31,7 +31,7 @@ export default {
 
 .greeting {
   position: relative;
-  min-height: calc(100vh - 76px);
+  min-height: 689px;
 
   display: flex;
   justify-content: center;
@@ -71,7 +71,7 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .greeting {
-    min-height: calc(100vh - 72px);
+    min-height: 620px;
   }
 
   .greeting__title {
@@ -79,7 +79,17 @@ export default {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .greeting {
+    min-height: 540px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .greeting {
+    min-height: 780px;
+  }
+
   .greeting__title {
     font-size: 64px;
   }
@@ -87,7 +97,7 @@ export default {
 
 @media screen and (max-width: 320px) {
   .greeting {
-    min-height: calc(100vh - 64px);
+    min-height: 480px;
   }
 
   .greeting__title {
