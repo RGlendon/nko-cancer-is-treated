@@ -1,35 +1,52 @@
 <template>
   <div>
-    <div class="quiz" v-if="currentQuestion < questions.length - 1">
-      <h3 class="quiz__title">{{ questions[currentQuestion].title }}</h3>
-      <p class="quize__question">{{ questions[currentQuestion].question }}</p>
+    <div class="quiz" v-if="currentNumber < questions.length - 1">
+      <h3 class="quiz__title">{{ questions[currentNumber].title }}</h3>
+      <p class="quize__question">
+        <span class="quize__question_main">{{
+          questions[currentNumber].question
+        }}</span>
+        <span
+          v-if="questions[currentNumber].questionAdd"
+          class="quize__question_add"
+          >{{ questions[currentNumber].questionAdd }}</span
+        >
+      </p>
 
       <Input
         placeholder="Напишите тут"
         :bottomBordered="true"
-        v-model="content"
+        v-model="answer"
+        :autofocus="true"
       />
 
       <div class="quiz__buttons">
         <button
           @click="prevQuestion"
           class="quiz__prev"
-          :disabled="currentQuestion === 0"
+          :disabled="currentNumber === 0"
         >
           Назад
         </button>
         <Button
-          v-if="currentQuestion < questions.length - 1 - 1"
-          @btnClick="nextQuestion(content, currentQuestion)"
+          v-if="currentNumber < questions.length - 1 - 1"
+          @btnClick="nextQuestion"
+          :disabled="answer.length === 0"
           >Далее
         </Button>
         <Button v-else @btnClick="submitPopupForm">Отправить</Button>
+        <p v-if="currentNumber === 11" class="quiz__policy">
+          Нажимая на кнопку «отправить», вы даете согласие на
+          <nuxt-link :to="'/policy'" class="quiz__link"
+            >обработку персональных данных</nuxt-link
+          >
+        </p>
       </div>
     </div>
 
     <div class="quiz" v-else>
       <h3 class="quiz__title quiz__title_center">
-        {{ questions[currentQuestion].title }}
+        {{ questions[currentNumber].title }}
       </h3>
       <Button class="quiz_button" @btnClick="togglePopup">Закрыть</Button>
     </div>
@@ -46,49 +63,64 @@ export default {
     Button,
   },
 
+  data() {
+    return {
+      answer: '',
+    };
+  },
+
   computed: {
-    currentQuestion() {
-      return this.$store.getters['quiz/getCurrentQuestion'];
-    },
     questions() {
       return this.$store.getters['quiz/getQuestions'];
+    },
+    currentNumber() {
+      return this.$store.getters['quiz/getCurrentNumber'];
     },
     answers() {
       return this.$store.getters['quiz/getAnswers'];
     },
+    initialAnswer() {
+      return this.$store.getters['quiz/initialAnswer'];
+    },
   },
 
   methods: {
-    submitPopupForm() {
-      this.nextQuestion();
-      this.submitForm(this.answers);
+    async prevQuestion() {
+      await this.$store.dispatch('quiz/PREV_QUESTION');
+      this.answer = this.initialAnswer;
     },
-    prevQuestion() {
-      return this.$store.commit('quiz/prevQuestion');
-    },
-    nextQuestion(answer, currentQuestion) {
-      return (
-        this.$store.commit('quiz/setAnswer', { answer, currentQuestion }),
-        this.$store.commit('quiz/nextQuestion')
-      );
+    async nextQuestion() {
+      await this.$store.dispatch('quiz/NEXT_QUESTION', { answer: this.answer });
+      this.answer = this.initialAnswer;
     },
     submitForm(answers) {
       console.log(`отправлена форма с данными ${answers}`);
     },
-    togglePopup() {
-      return this.$store.commit('popup/togglePopup');
+    async submitPopupForm() {
+      await this.$store.dispatch('quiz/NEXT_QUESTION', { answer: this.answer });
+      await this.submitForm(this.answers);
+      // await
     },
-  },
-
-  data() {
-    return {
-      content: '',
-    };
+    togglePopup() {
+      this.$store.commit('quiz/resetQuiz');
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>
 
 <style scoped>
+.quiz__policy {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666666;
+  margin-left: 30px;
+  width: 27em;
+}
+.quiz__link {
+  color: #666666;
+}
 .quiz__title {
   font-weight: 600;
   font-size: 32px;
@@ -98,15 +130,20 @@ export default {
 
 .quize__question {
   min-height: 72px;
-  /* font-weight: 500; */
+  font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   margin-top: 40px;
   margin-bottom: 110px;
 }
 
+.quize__question_add {
+  font-weight: normal;
+}
+
 .quiz__buttons {
   margin-top: 200px;
+  display: flex;
 }
 
 .quiz__prev {
