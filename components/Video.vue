@@ -74,13 +74,12 @@ export default {
   },
 
   // этот fetch не работает почему-то =(
-  // fetch({ store, params }) {
-  //    store.dispatch('video/fetchVideos');
+  // fetch({ store }) {
+  //    store.dispatch('video/fetchVideo');
   // },
-  beforeMount() {
-    // this.$store.dispatch('video/fetchVideos');
-    console.log(this.videos);
-  },
+  // beforeMount() {
+  //   this.$store.dispatch('video/fetchVideo');
+  // },
 };
 </script>
 
