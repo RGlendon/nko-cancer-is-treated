@@ -2,9 +2,9 @@
   <div class="general">
     <Greeting />
     <Video />
-    <Inscription>{{ inscription[0].upper }}</Inscription>
+    <Note>{{ note[0].upper }}</Note>
     <Stories />
-    <Inscription>{{ inscription[0].bottom }}</Inscription>
+    <Note>{{ note[0].bottom }}</Note>
     <Inst />
     <TellUsStory />
     <Statistics />
@@ -16,12 +16,11 @@
 import Greeting from '@/components/Greeting.vue';
 import Video from '@/components/Video.vue';
 import Stories from '@/components/Stories.vue';
-import Inscription from '@/components/Inscription.vue';
+import Note from '@/components/Note.vue';
 import TellUsStory from '@/components/TellUsStory.vue';
 import Raklechitsa from '@/components/Raklechitsa.vue';
 import Inst from '@/components/Inst.vue';
 import Statistics from '../components/Statistics';
-
 export default {
   components: {
     Statistics,
@@ -29,7 +28,7 @@ export default {
     Stories,
     Video,
     TellUsStory,
-    Inscription,
+    Note,
     Raklechitsa,
     Inst,
   },
@@ -38,7 +37,7 @@ export default {
   },
   data() {
     return {
-      inscription: [
+      note: [
         {
           upper: 'И В ОТЛИЧИЕ ОТ РАКА,',
           bottom: 'РАССКАЗЫВАЙТЕ ВАШИ ИСТОРИИ В ИНСТАГРАМ',
