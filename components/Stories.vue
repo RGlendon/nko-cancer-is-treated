@@ -4,7 +4,7 @@
     <div class="stories__container">
       <ul class="stories__list">
         <li class="stories__item" v-for="story in itemsToLoop" :key="story.id">
-          <nuxt-link :to="`/stories/${story.id}`">
+          <nuxt-link :to="`/stories/${story.id}`" class="stories__link">
             <Story
               :ImageUrl="isSmallImageSet(story)"
               :title="story.title"
@@ -64,6 +64,11 @@ export default {
 </script>
 
 <style scoped>
+.stories__link {
+  text-decoration: none;
+  color: black;
+}
+
 .stories__list {
   list-style: none;
   display: flex;
