@@ -55,7 +55,7 @@ export default {
   width: 100%;
   font-size: 18px;
   line-height: 24px;
-  padding: 12px 6px;
+  padding: 12px 12px;
   background: transparent;
   outline: none;
 }
@@ -72,24 +72,28 @@ export default {
   border-bottom: 1px solid var(--color-border);
   color: #666;
 }
+
 @media screen and (max-width: 1280px) {
   .input_bottom-bordered {
     font-size: 16px;
     line-height: 22px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .input_bottom-bordered {
     font-size: 15px;
     line-height: 22px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .input_bottom-bordered {
     font-size: 15px;
     line-height: 19px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .input_bottom-bordered {
     padding: 2px 0;

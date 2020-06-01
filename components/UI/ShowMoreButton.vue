@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <!--    TODO: button more articles. Responsible - Oleg-->
-    <a href="/stories/" class="stories__link"
-      ><button class="sories__more">Больше статей</button></a
-    >
-  </div>
+  <nuxt-link to="/stories/" class="stories__link">
+    <button class="stories__more">Больше статей</button>
+  </nuxt-link>
 </template>
 
 <script>
@@ -14,7 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.sories__more {
+.stories__more {
   width: 100%;
   height: 82px;
   background: #fbfbfb;
@@ -25,5 +22,18 @@ export default {
   line-height: 20px;
   cursor: pointer;
   border: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .stories__more {
+    height: 78px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .stories__more {
+    height: 50px;
+    font-size: 13px;
+  }
 }
 </style>

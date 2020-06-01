@@ -1,10 +1,6 @@
 <template>
   <button
-    :class="[
-      'button',
-      { button_small: size === 'small' },
-      { button_disabled: disabled },
-    ]"
+    :class="['button', className, { button_disabled: disabled }]"
     :disabled="disabled"
     v-on:click="handleClick"
   >
@@ -16,7 +12,7 @@
 export default {
   props: {
     disabled: Boolean,
-    size: String,
+    className: String,
   },
   methods: {
     handleClick(e) {
