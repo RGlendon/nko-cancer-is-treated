@@ -4,12 +4,14 @@
     <div class="stories__container">
       <ul class="stories__list">
         <li class="stories__item" v-for="story in itemsToLoop" :key="story.id">
-          <Story
-            :ImageUrl="isSmallImageSet(story)"
-            :title="story.title"
-            :author="story.author"
-            @cardClick="goToDetail(story.id)"
-          />
+          <nuxt-link :to="`/stories/${story.id}`">
+            <Story
+              :ImageUrl="isSmallImageSet(story)"
+              :title="story.title"
+              :author="story.author"
+            />
+            <!--              @cardClick="goToDetail(story.id)"-->
+          </nuxt-link>
         </li>
       </ul>
     </div>
@@ -47,9 +49,9 @@ export default {
     this.$store.dispatch('stories/fetchStories');
   },
   methods: {
-    goToDetail(id) {
-      this.$router.push(`/stories/${id}`);
-    },
+    // goToDetail(id) {
+    //   this.$router.push(`/stories/${id}`);
+    // },
     isSmallImageSet: story => {
       const imageFormats = story.ImageUrl[0].formats;
       if (imageFormats.hasOwnProperty('small')) {
