@@ -37,9 +37,10 @@
         <Button v-else @btnClick="submitPopupForm">Отправить</Button>
         <p v-if="currentNumber === 11" class="quiz__policy">
           Нажимая на кнопку «отправить», вы даете согласие на
-          <span class="quiz__link" @click="readPolicy"
-            >обработку персональных данных
-          </span>
+          <!--          <span class="quiz__link" @click="readPolicy"-->
+          <nuxt-link to="/policy" target="_blank" class="quiz__link">
+            <span>обработку персональных данных</span>
+          </nuxt-link>
         </p>
       </div>
     </div>
@@ -48,7 +49,7 @@
       <h3 class="quiz__title quiz__title_center">
         {{ questions[currentNumber].title }}
       </h3>
-      <Button class="quiz_button" @btnClick="togglePopup">Закрыть</Button>
+      <Button class="quiz_button" @btnClick="closePopup">Закрыть</Button>
     </div>
   </div>
 </template>
@@ -125,8 +126,6 @@ export default {
 
 .quiz__link {
   color: var(--color-gray3);
-  border-bottom: 1px solid var(--color-gray3);
-  cursor: pointer;
 }
 
 .quiz__title {
@@ -188,10 +187,12 @@ export default {
   display: block;
   margin: 0 auto;
 }
+
 @media screen and (max-width: 1280px) {
   .quiz {
     min-height: 440px;
   }
+
   .quiz__title {
     font-size: 28px;
     line-height: 32px;
@@ -216,6 +217,7 @@ export default {
     margin-bottom: 358px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .quiz__title {
     font-size: 26px;
@@ -240,6 +242,7 @@ export default {
     margin-bottom: 361px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .quiz__title {
     font-size: 26px;
@@ -264,6 +267,7 @@ export default {
     margin-bottom: 361px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .quiz {
     min-height: 490px;
