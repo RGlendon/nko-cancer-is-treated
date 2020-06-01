@@ -3,14 +3,10 @@
     <div class="quiz" v-if="currentNumber < questions.length - 1">
       <h3 class="quiz__title">{{ questions[currentNumber].title }}</h3>
       <p class="quize__question">
-        <span class="quize__question_main">{{
-          questions[currentNumber].question
+        <span class="quize__main">{{ questions[currentNumber].question }}</span>
+        <span v-if="questions[currentNumber].questionAdd" class="quize__add">{{
+          questions[currentNumber].questionAdd
         }}</span>
-        <span
-          v-if="questions[currentNumber].questionAdd"
-          class="quize__question_add"
-          >{{ questions[currentNumber].questionAdd }}</span
-        >
       </p>
 
       <Input
@@ -146,7 +142,7 @@ export default {
   color: #000;
 }
 
-.quize__question_add {
+.quize__add {
   font-weight: normal;
 }
 
