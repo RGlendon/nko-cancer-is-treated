@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Menu from './Menu';
-import Container from './Container';
+import Menu from '~/components/Menu';
+import Container from '~/components/Container';
 
 export default {
   components: { Container, Menu },

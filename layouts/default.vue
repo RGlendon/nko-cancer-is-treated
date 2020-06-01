@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Overlay from '../components/UI/Overlay';
-import Popup from '../components/Popup';
-import Quiz from '../components/Quiz';
-import MobileMenu from '../components/MobileMenu';
-import Feadback from '../components/Feadback';
-import Socials from '../components/Socials';
+import Header from '~/components/Header';
+import Footer from '~/components/Footer';
+import Overlay from '~/components/UI/Overlay';
+import Popup from '~/components/Popup';
+import Quiz from '~/components/Quiz';
+import MobileMenu from '~/components/MobileMenu';
+import Feadback from '~/components/Feadback';
+import Socials from '~/components/Socials';
 
 export default {
   components: {
@@ -57,6 +57,10 @@ export default {
     closePopup() {
       return this.$store.commit('popup/closePopup');
     },
+  },
+
+  beforeMount() {
+    this.$store.dispatch('blocks/fetchBlocks');
   },
 };
 </script>

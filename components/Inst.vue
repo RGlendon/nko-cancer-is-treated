@@ -3,8 +3,9 @@
     <div class="inst">
       <div class="inst__container">
         <h3 class="inst__title">
-          <span class="inst__underline">Инстаграм</span>
+          <nuxt-link to="#" class="inst__link">Инстаграм</nuxt-link>
         </h3>
+
         <p class="inst__text">
           Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
           Все истории, где нет нецензурных выражений и запрещенного контента
@@ -89,10 +90,13 @@ export default {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
+  border-bottom: 3px solid currentColor;
+  width: fit-content;
 }
 
-.inst__underline {
-  border-bottom: 3px solid currentColor;
+.inst__link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .inst__text {

@@ -5,9 +5,7 @@
         <h2 class="footer__title">
           Спасибо всем, кто помог состояться этому проекту
         </h2>
-        <nav class="footer__menu">
-          <Menu :menu="menu" :className="'menu_footer'" />
-        </nav>
+        <Menu :menu="menu" :className="'footer__menu'" />
         <div class="footer__social-blok">
           <p class="footer__social-link-text">
             Мы&nbsp;в&nbsp;<a
@@ -46,7 +44,6 @@
 <script>
 import Container from '@/components/Container.vue';
 import Menu from '@/components/Menu.vue';
-import MenuNew from './Menu';
 
 export default {
   components: {
@@ -106,6 +103,7 @@ export default {
 
 .footer__menu {
   width: 50%;
+  display: flex;
 }
 
 .footer__social-blok {

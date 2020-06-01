@@ -1,25 +1,27 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <h2 class="stories__title">Истории неизлечимых привычек</h2>
     <form action="" method="get" class="stories__search">
-      <input
+      <Input
         name="search"
         placeholder="Искать здесь..."
         type="search"
-        class="stories__search-input"
+        :className="'stories__search-input'"
       />
-      <button type="submit" class="stories__search-button">Поиск</button>
+      <Button type="submit" :className="'stories__search-button'">Поиск</Button>
     </form>
     <div class="stories__container">
       <ul class="stories__list">
         <li class="stories__item" v-for="story in itemsToLoop" :key="story.id">
-          <Story
-            class="story"
-            :ImageUrl="isSmallImageSet(story)"
-            :title="story.title"
-            :author="story.author"
-            @cardClick="goToDetail(story.id)"
-          />
+          <nuxt-link :to="`/stories/${story.id}`" class="stories__link">
+            <Story
+              class="story"
+              :ImageUrl="isSmallImageSet(story)"
+              :title="story.title"
+              :author="story.author"
+            />
+          </nuxt-link>
+          <!--            @cardClick="goToDetail(story.id)"-->
         </li>
       </ul>
     </div>
@@ -27,11 +29,15 @@
 </template>
 
 <script>
-import Container from '@/components/Container.vue';
-import Story from '@/components/Story';
+import Container from '~/components/Container.vue';
+import Story from '~/components/Story';
+import Input from '~/components/UI/Input';
+import Button from '~/components/UI/Button';
 
 export default {
   components: {
+    Button,
+    Input,
     Container,
     Story,
   },
@@ -56,9 +62,9 @@ export default {
     this.$store.dispatch('stories/fetchStories');
   },
   methods: {
-    goToDetail(id) {
-      this.$router.push(`/stories/${id}`);
-    },
+    // goToDetail(id) {
+    //   this.$router.push(`/stories/${id}`);
+    // },
     isSmallImageSet: story => {
       const imageFormats = story.ImageUrl[0].formats;
       if (imageFormats.hasOwnProperty('small')) {
@@ -71,6 +77,11 @@ export default {
 </script>
 
 <style scoped>
+.stories__link {
+  text-decoration: none;
+  color: black;
+}
+
 .stories__title {
   width: 413px;
   font-family: Inter;
@@ -86,25 +97,14 @@ export default {
   justify-content: space-between;
 }
 
-.stories__search-input {
-  width: 1074px;
-  height: 52px;
-  border: 1px solid #e8e8e8;
-  padding: 0;
-}
+/*.stories__search-input {*/
+
+/*}*/
 
 .stories__search-button {
   width: 226px;
   height: 52px;
-  background: #613a93;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  padding: 0;
+  margin-left: 20px;
 }
 
 .stories__list {

@@ -1,21 +1,24 @@
 <template>
   <Container>
     <header class="header">
-      <p class="header__title">
+      <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo">
+        <p class="header__title">
+          Проект Благотворительного Фонда Константина Хабенского
+        </p>
+      </nuxt-link>
+      <p class="header__title" v-else>
         Проект Благотворительного Фонда Константина Хабенского
       </p>
-      <nav class="header__menu">
-        <Menu :menu="menu" isUnderlined="true" />
-      </nav>
+      <Menu :menu="menu" :className="'header__menu'" />
       <MobileIcon class="header__mobile-icon" />
     </header>
   </Container>
 </template>
 
 <script>
-import Menu from './Menu';
-import Container from './Container';
-import MobileIcon from './UI/MobileIcon';
+import Menu from '~/components/Menu';
+import Container from '~/components/Container';
+import MobileIcon from '~/components/UI/MobileIcon';
 
 export default {
   components: { Container, Menu, MobileIcon },
@@ -52,6 +55,11 @@ export default {
   max-width: 100%;
   height: 76px;
   margin: 0 auto;
+}
+
+.header__logo {
+  text-decoration: none;
+  color: black;
 }
 
 .header__title {

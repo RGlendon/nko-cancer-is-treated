@@ -1,19 +1,17 @@
 <template>
-  <div class="story" @click="$emit('cardClick')">
-    <!--    <a :href="id" class="story__link">-->
+  <!--  <div class="story" @click="$emit('cardClick')">-->
+  <div class="story">
     <div class="story__wrap">
       <img :src="`${baseurl}${ImageUrl}`" class="story__background" />
-
       <h3 class="story__title">{{ author }}</h3>
       <p class="story__subtitle">{{ title }}</p>
     </div>
-    <!--    </a>-->
   </div>
 </template>
 
 <script>
 export default {
-  props: ['ImageUrl', 'author', 'title', 'src', 'id'],
+  props: ['ImageUrl', 'author', 'title'],
   data() {
     return {
       baseurl: process.env.BASE_URL,

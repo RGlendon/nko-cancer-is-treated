@@ -4,11 +4,15 @@
       <div class="tell__columns">
         <div class="tell__brief">
           <h3 class="tell__about">Расскажите свою историю</h3>
-          <p class="tell__about-text">
-            Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-            поделиться своей историей неизлечимых привычек, навязчивых идей и
-            болезненных привязанностей.
-          </p>
+          <!--          <p class="tell__about-text">-->
+          <!--            Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта-->
+          <!--            поделиться своей историей неизлечимых привычек, навязчивых идей и-->
+          <!--            болезненных привязанностей.-->
+          <!--          </p>-->
+          <!--          FIXME: не работает загрузка данных-->
+          <!--                    <p class="tell__about-text">-->
+          <!--                      {{tellUsData.title}}-->
+          <!--                    </p>-->
         </div>
         <div class="tell__column">
           <div class="tell__links">
@@ -52,6 +56,7 @@ export default {
 
   methods: {
     selectOption: function(number) {
+      // console.log(this.tellUsData.title)
       this.option = number;
     },
     openPopupQuiz() {
@@ -59,6 +64,17 @@ export default {
     },
     togglePopupFeedback() {
       this.$store.commit('popup/openPopupFeedback');
+    },
+
+    filterText(str) {
+      let newStr = str;
+      return newStr.replace(/(<p>)|(<\/p>)/g, '');
+    },
+  },
+
+  computed: {
+    tellUsData() {
+      return this.$store.getters['blocks/getTellUsData'];
     },
   },
 

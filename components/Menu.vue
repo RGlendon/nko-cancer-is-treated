@@ -1,17 +1,20 @@
 <template>
-  <ul :class="['menu', className]">
-    <li class="menu__item" v-for="link in menu" :key="link.id">
-      <nuxt-link
-        v-if="link.path"
-        :to="link.path"
-        :class="['menu__link', { menu_link_underline: link.isUnderlined }]"
-        >{{ link.title }}</nuxt-link
-      >
-      <button v-else class="menu__button" @click="openPopupQuiz">
-        {{ link.title }}
-      </button>
-    </li>
-  </ul>
+  <nav :class="className">
+    <!--  <nav>-->
+    <ul :class="['menu', className]">
+      <li class="menu__item" v-for="link in menu" :key="link.id">
+        <nuxt-link
+          v-if="link.path"
+          :to="link.path"
+          :class="['menu__link', { menu_link_underline: link.isUnderlined }]"
+          >{{ link.title }}
+        </nuxt-link>
+        <button v-else class="menu__button" @click="openPopupQuiz">
+          {{ link.title }}
+        </button>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -64,6 +67,7 @@ export default {
   .menu {
     font-size: 16px;
   }
+
   .menu__button {
     font-size: 16px;
   }

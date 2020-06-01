@@ -1,5 +1,5 @@
 <template>
-  <Container>
+  <Container :className="'container_type_margin'">
     <div class="story__head">
       <img
         :src="`${baseurl}${isLargeImageSet(story)}`"
@@ -48,6 +48,7 @@
 import Container from '@/components/Container.vue';
 import ShowMore from '@/components/UI/ShowMoreButton.vue';
 import Story from '@/components/Story.vue';
+
 export default {
   components: {
     Container,
@@ -133,7 +134,6 @@ export default {
 .story__head {
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
 }
 
 .story__img {
@@ -227,6 +227,10 @@ export default {
   margin-top: 90px;
 }
 
+.stories__container {
+  margin-bottom: 70px;
+}
+
 @media screen and (max-width: 1280px) {
   .story__head {
     display: flex;
@@ -312,6 +316,10 @@ export default {
     flex-wrap: wrap;
     padding: 0;
     margin-top: 90px;
+  }
+
+  .stories__container {
+    margin-bottom: 60px;
   }
 }
 
@@ -401,6 +409,10 @@ export default {
     padding: 0;
     margin-top: 90px;
   }
+
+  .stories__container {
+    margin-bottom: 45px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -416,7 +428,7 @@ export default {
     /* display: none; */
     position: absolute;
     left: 23%;
-    top: 15%;
+    top: 48%;
   }
 
   .story__about {
@@ -494,6 +506,10 @@ export default {
     padding: 0;
     margin-top: 90px;
   }
+
+  .stories__container {
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -509,7 +525,7 @@ export default {
     /* display: none; */
     position: absolute;
     left: 5%;
-    top: 13%;
+    top: 37%;
   }
 
   .story__about {

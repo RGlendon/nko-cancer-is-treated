@@ -54,7 +54,7 @@ export const getters = {
 
 export const actions = {
   async fetchVideo({ commit }) {
-    const video = await this.$axios.$get(process.env.BASE_URL + 'videos');
+    const video = await this.$axios.$get(process.env.BASE_URL + '/videos');
     commit('setState', {
       name: 'video',
       value: video,

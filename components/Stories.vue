@@ -4,16 +4,18 @@
     <div class="stories__container">
       <ul class="stories__list">
         <li class="stories__item" v-for="story in itemsToLoop" :key="story.id">
-          <Story
-            :ImageUrl="isSmallImageSet(story)"
-            :title="story.title"
-            :author="story.author"
-            @cardClick="goToDetail(story.id)"
-          />
+          <nuxt-link :to="`/stories/${story.id}`" class="stories__link">
+            <Story
+              :ImageUrl="isSmallImageSet(story)"
+              :title="story.title"
+              :author="story.author"
+            />
+            <!--              @cardClick="goToDetail(story.id)"-->
+          </nuxt-link>
         </li>
       </ul>
     </div>
-    <ShowMore class="showmore" />
+    <ShowMore />
   </Container>
 </template>
 <script>
@@ -47,9 +49,9 @@ export default {
     this.$store.dispatch('stories/fetchStories');
   },
   methods: {
-    goToDetail(id) {
-      this.$router.push(`/stories/${id}`);
-    },
+    // goToDetail(id) {
+    //   this.$router.push(`/stories/${id}`);
+    // },
     isSmallImageSet: story => {
       const imageFormats = story.ImageUrl[0].formats;
       if (imageFormats.hasOwnProperty('small')) {
@@ -62,6 +64,11 @@ export default {
 </script>
 
 <style scoped>
+.stories__link {
+  text-decoration: none;
+  color: black;
+}
+
 .stories__list {
   list-style: none;
   display: flex;
@@ -81,19 +88,19 @@ export default {
   margin: 0;
 }
 
-.showmore {
-  margin-top: 70px;
+.stories__container {
+  margin-bottom: 70px;
 }
 
 @media screen and (max-width: 1280px) {
-  .showmore {
-    margin-top: 60px;
+  .stories__container {
+    margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .showmore {
-    margin-top: 46px;
+  .stories__container {
+    margin-bottom: 46px;
   }
 }
 
@@ -119,8 +126,8 @@ export default {
   }
 
   @media screen and (max-width: 320px) {
-    .showmore {
-      margin-top: 40px;
+    .stories__container {
+      margin-bottom: 40px;
     }
 
     .stories__list {
