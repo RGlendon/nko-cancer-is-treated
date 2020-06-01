@@ -45,7 +45,7 @@
       <h3 class="quiz__title quiz__title_center">
         {{ questions[currentNumber].title }}
       </h3>
-      <Button class="quiz_button" @btnClick="closePopup">Закрыть</Button>
+      <Button class="quiz__button" @btnClick="closePopup">Закрыть</Button>
     </div>
   </div>
 </template>
@@ -179,7 +179,7 @@ export default {
   margin-bottom: 432px;
 }
 
-.quiz_button {
+.quiz__button {
   display: block;
   margin: 0 auto;
 }
