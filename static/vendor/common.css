@@ -1,0 +1,26 @@
+.page-enter-active, .page-leave-active {
+  transition: opacity .3s;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+
+:root {
+  --color-purple: #613A93;
+
+  --color-gray3: #666;
+  --color-gray2: #C9C9C9;
+  --color-gray: #DEDEDE;
+  --color-gray4: #F7F7F7;
+  --calor-gray5: #A2A2A2;
+
+  --color-lightgray: #FBFBFB;
+  --color-lightgray2: #FFF;
+
+  --color-border: #E8E8E8;
+}
+
+body {
+  margin: 0;
+}

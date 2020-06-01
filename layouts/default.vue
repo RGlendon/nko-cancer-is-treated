@@ -1,13 +1,73 @@
 <template>
   <div>
+    <MobileMenu v-if="isMobileMenuOpened" class="main-mobile-menu" />
+    <Header class="main-header" />
     <nuxt />
+    <Overlay v-if="popupShown" @overlayClick="closePopup" />
+    <Popup v-if="popupShown" :feedbackShown="feedbackShown">
+      <Quiz v-if="quizShown" />
+      <Feadback v-if="feedbackShown" />
+      <Socials v-if="socialsShown" />
+    </Popup>
+    <Footer />
   </div>
 </template>
 
+<script>
+import Header from '~/components/Header';
+import Footer from '~/components/Footer';
+import Overlay from '~/components/UI/Overlay';
+import Popup from '~/components/Popup';
+import Quiz from '~/components/Quiz';
+import MobileMenu from '~/components/MobileMenu';
+import Feadback from '~/components/Feadback';
+import Socials from '~/components/Socials';
+
+export default {
+  components: {
+    Socials,
+    Feadback,
+    MobileMenu,
+    Popup,
+    Footer,
+    Header,
+    Overlay,
+    Quiz,
+  },
+
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown'];
+    },
+    feedbackShown() {
+      return this.$store.getters['popup/getFeedbackShown'];
+    },
+    quizShown() {
+      return this.$store.getters['popup/getQuizShown'];
+    },
+    socialsShown() {
+      return this.$store.getters['popup/getSocialsShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+  },
+
+  methods: {
+    closePopup() {
+      return this.$store.commit('popup/closePopup');
+    },
+  },
+
+  beforeMount() {
+    this.$store.dispatch('blocks/fetchBlocks');
+  },
+};
+</script>
+
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -17,39 +77,26 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
+.main-mobile-menu {
+  display: none;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.main-header {
+  border-bottom: 1px solid #efefef;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+@media screen and (max-width: 768px) {
+  .main-mobile-menu {
+    min-height: 60px;
+    display: block;
+    border-bottom: 1px solid #efefef;
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
+    /*align-items: center;*/
+  }
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media screen and (max-width: 320px) {
+  .popup.popup__quiz {
+  }
 }
 </style>
