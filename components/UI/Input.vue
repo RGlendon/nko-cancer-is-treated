@@ -6,6 +6,7 @@
     @input="handleInput"
     ref="input"
     :placeholder="placeholder"
+    :name="name"
   />
 </template>
 
@@ -16,6 +17,7 @@ export default {
     autofocus: Boolean,
     bottomBordered: Boolean,
     placeholder: String,
+    name: String,
     className: String,
     type: {
       type: String,

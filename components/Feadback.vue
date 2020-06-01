@@ -1,19 +1,21 @@
 <template>
-  <div>
-    <div class="feadback">
-      <h3 class="feadback__title">Оставьте контакт для связи</h3>
-      <p class="feadback__subtitle">
-        Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей
-        истории и разместить ее на сайте.
-      </p>
+  <div class="feadback">
+    <h3 class="feadback__title">Оставьте контакт для связи</h3>
+    <p class="feadback__subtitle">
+      Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
+      и разместить ее на сайте.
+    </p>
 
+    <form>
       <label class="feadback__question"
         >Как вас зовут?
         <Input
           class="feadback__input"
-          placeholder="Напишите тут"
+          :placeholder="'Напишите тут'"
           :bottomBordered="true"
-          v-model="content"
+          :name="'name'"
+          :type="'text'"
+          v-model="name"
         />
       </label>
 
@@ -27,7 +29,9 @@
             class="feadback__input"
             placeholder="pochta@example.com"
             :bottomBordered="true"
-            v-model="content"
+            :name="'email'"
+            :type="'email'"
+            v-model="email"
           />
         </div>
 
@@ -40,7 +44,9 @@
             class="feadback__input"
             placeholder="+7 000 000 00 00"
             :bottomBordered="true"
-            v-model="content"
+            :name="'tel'"
+            :type="'tel'"
+            v-model="tel"
           />
         </div>
       </div>
@@ -53,29 +59,42 @@
         class="feadback__input"
         placeholder="Телефон / почта и удобное время"
         :bottomBordered="true"
-        v-model="content"
+        :name="'comfort'"
+        :type="'text'"
+        v-model="comfort"
       />
 
       <div class="feadback__bottom-block">
         <Button @btnClick="submitPopupForm">Отправить</Button>
+        <!--        <Button @btnClick="onclick">Отправить</Button>-->
         <p class="feadback__policy">
           Нажимая на кнопку «отправить», вы даете согласие на
-          <a href="#" class="feadback__policy-link"
-            >обработку персональных данных</a
-          >
+          <nuxt-link to="/policy" target="_blank" class="feedback__link">
+            <span>обработку персональных данных</span>
+          </nuxt-link>
         </p>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
 import Input from '~/components/UI/Input';
 import Button from '~/components/UI/Button';
+
 export default {
   components: {
     Input,
     Button,
+  },
+
+  data() {
+    return {
+      name: '',
+      email: '',
+      tel: '',
+      comfort: '',
+    };
   },
 
   computed: {
@@ -91,22 +110,14 @@ export default {
   },
 
   methods: {
+    // FIXME
     submitPopupForm() {
-      this.submitForm(this.answers);
+      console.log(`форма отправлена: ${this.data}`);
     },
 
-    submitForm(answers) {
-      console.log(`отправлена форма с данными ${answers}`);
-    },
     togglePopup() {
       return this.$store.commit('popup/closePopup');
     },
-  },
-
-  data() {
-    return {
-      content: '',
-    };
   },
 };
 </script>
@@ -122,6 +133,9 @@ export default {
   align-items: flex-start;
 }
 
+.feedback__link {
+  color: var(--color-gray3);
+}
 .feadback__title {
   font-weight: 600;
   font-size: 32px;
@@ -188,9 +202,11 @@ export default {
   .feadback__title {
     font-size: 28px;
   }
+
   .feadback__subtitle {
     font-size: 16px;
   }
+
   .feadback__question {
     font-size: 16px;
   }
@@ -200,9 +216,11 @@ export default {
   .feadback__title {
     font-size: 26px;
   }
+
   .feadback__subtitle {
     font-size: 15px;
   }
+
   .feadback__question {
     font-size: 15px;
   }
@@ -213,25 +231,30 @@ export default {
     /*height: calc(100vh - 30px);*/
     /*top: 15px;*/
   }
+
   .feadback__central-block {
     display: flex;
     flex-direction: column;
   }
+
   .feadback__title {
     width: 10.27em;
     font-size: 18px;
     line-height: 21px;
   }
+
   .feadback__subtitle {
     padding-top: 35px;
     font-size: 13px;
     line-height: 16px;
   }
+
   .feadback__question {
     margin-top: 30px;
     font-size: 13px;
     line-height: 16px;
   }
+
   .feadback__bottom-block {
     display: flex;
     flex-direction: column;
@@ -239,11 +262,13 @@ export default {
     align-items: center;
     margin-top: 35px;
   }
+
   .feadback__policy {
     width: 280px;
     font-size: 11px;
     line-height: 17px;
   }
+
   .feadback__input {
     padding-top: 30px;
   }
