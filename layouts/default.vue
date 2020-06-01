@@ -58,6 +58,10 @@ export default {
       return this.$store.commit('popup/closePopup');
     },
   },
+
+  beforeMount() {
+    this.$store.dispatch('blocks/fetchBlocks');
+  },
 };
 </script>
 

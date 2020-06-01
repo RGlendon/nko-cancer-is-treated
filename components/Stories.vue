@@ -15,7 +15,7 @@
         </li>
       </ul>
     </div>
-    <ShowMore class="showmore" />
+    <ShowMore />
   </Container>
 </template>
 <script>
@@ -88,19 +88,19 @@ export default {
   margin: 0;
 }
 
-.showmore {
-  margin-top: 70px;
+.stories__container {
+  margin-bottom: 70px;
 }
 
 @media screen and (max-width: 1280px) {
-  .showmore {
-    margin-top: 60px;
+  .stories__container {
+    margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .showmore {
-    margin-top: 46px;
+  .stories__container {
+    margin-bottom: 46px;
   }
 }
 
@@ -126,8 +126,8 @@ export default {
   }
 
   @media screen and (max-width: 320px) {
-    .showmore {
-      margin-top: 40px;
+    .stories__container {
+      margin-bottom: 40px;
     }
 
     .stories__list {
