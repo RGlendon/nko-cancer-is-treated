@@ -9,9 +9,7 @@
       <p class="header__title" v-else>
         Проект Благотворительного Фонда Константина Хабенского
       </p>
-      <nav class="header__menu">
-        <Menu :menu="menu" isUnderlined="true" />
-      </nav>
+      <Menu :menu="menu" :className="'header__menu'" />
       <MobileIcon class="header__mobile-icon" />
     </header>
   </Container>
