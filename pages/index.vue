@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import Greeting from '@/components/Greeting.vue';
-import Video from '@/components/Video.vue';
-import Stories from '@/components/Stories.vue';
-import Note from '@/components/Note.vue';
-import TellUsStory from '@/components/TellUsStory.vue';
-import Raklechitsa from '@/components/Raklechitsa.vue';
-import Inst from '@/components/Inst.vue';
-import Statistics from '../components/Statistics';
+import Greeting from '~/components/Greeting.vue';
+import Video from '~/components/Video.vue';
+import Stories from '~/components/Stories.vue';
+import Note from '~/components/Note.vue';
+import TellUsStory from '~/components/TellUsStory.vue';
+import Raklechitsa from '~/components/Raklechitsa.vue';
+import Inst from '~/components/Inst.vue';
+import Statistics from '~/components/Statistics';
 export default {
   components: {
     Statistics,

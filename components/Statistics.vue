@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Container from './Container';
+import Container from '~/components/Container';
 
 export default {
   name: 'Statistics',

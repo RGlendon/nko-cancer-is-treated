@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Menu from './Menu';
-import Container from './Container';
-import MobileIcon from './UI/MobileIcon';
+import Menu from '~/components/Menu';
+import Container from '~/components/Container';
+import MobileIcon from '~/components/UI/MobileIcon';
 
 export default {
   components: { Container, Menu, MobileIcon },

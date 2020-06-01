@@ -47,7 +47,7 @@
 
 <script>
 import Container from '@/components/Container.vue';
-import VideoIframe from './UI/VideoIframe';
+import VideoIframe from '~/components/UI/VideoIframe';
 
 export default {
   components: {

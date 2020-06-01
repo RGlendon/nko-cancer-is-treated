@@ -1,5 +1,5 @@
 <template>
-  <div :class="['popup', { popup___feedback: feedbackShown }]">
+  <div :class="['popup', { popup_feedback: feedbackShown }]">
     <div class="close" @click="closePopup"></div>
     <slot>Содержимое окна</slot>
   </div>
@@ -66,7 +66,7 @@ export default {
     top: 19.7px;
     right: 16.9px;
   }
-  .popup.popup___feedback {
+  .popup.popup_feedback {
     top: 15px;
     transform: translate(-50%, 0);
   }

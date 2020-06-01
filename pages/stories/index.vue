@@ -29,10 +29,10 @@
 </template>
 
 <script>
-import Container from '@/components/Container.vue';
-import Story from '@/components/Story';
-import Input from '../../components/UI/Input';
-import Button from '../../components/UI/Button';
+import Container from '~/components/Container.vue';
+import Story from '~/components/Story';
+import Input from '~/components/UI/Input';
+import Button from '~/components/UI/Button';
 
 export default {
   components: {
